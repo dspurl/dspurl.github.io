@@ -1,7 +1,4 @@
-
 /.idea/
 /node_modules/
-/docs/
-/docs/dsshop/
 yarn-error.log
 yarn.lock
