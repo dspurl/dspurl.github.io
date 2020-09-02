@@ -10,14 +10,15 @@
 - [Google Chrome](https://www.google.cn/chrome/ "Google Chrome")
 
 ## 环境搭建
-### 1.Homestead安装
+如果你的电脑支持安装docker的话，推荐第二种安装方法
+## 一.基于Homestead安装
 参考：[Laravel Homestead](https://learnku.com/docs/laravel/7.x/homestead/7450 "Laravel Homestead")
-## DSSHOP使用
+### DSSHOP使用
 - 下载[dsshop](https://github.com/dspurl/dsshop "dsshop")
 ```markdown
 git clone https://github.com/dspurl/dsshop.git
 ```
-## DSSHOP后端代码部署
+### DSSHOP后端代码部署
 - 进入api目录
 - 安装[composer](https://www.runoob.com/w3cnote/composer-install-and-usage.html "composer") 建议切换到中国镜像，不然下载会比较慢
 - 安装dsshop依赖包
@@ -54,7 +55,7 @@ PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 ```
 - 访问项目对应的域名，如果正常显示页面，说明搭建成功了
-## DSSHOP前端代码部署(后台)
+### DSSHOP前端代码部署(后台)
 ```shell
 cd ../admin
 #不要在linux下执行，会报错，推荐windows
@@ -70,7 +71,7 @@ npm run dev
 admin
 admin
 ```
-## DSSHOP前端代码部署(H5端、小程序端)
+### DSSHOP前端代码部署(H5端、小程序端)
 - 先安装[nodejs](https://nodejs.org/en/ "nodejs")和[HBuilder x 用来开发小程序端](https://dcloud.io/hbuilderx.html "HBuilder x 用来开发小程序端")
 ```shell
 cd ../trade/Dsshop
@@ -82,8 +83,8 @@ npm install
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 
-### 2. Laradock安装
-#### [安装Laradock](https://laradock.io/getting-started/)
+## 二. 基于Laradock安装
+### [安装Laradock](https://laradock.io/getting-started/)
 window 安装docker.exe
 
 下载Laradock仓库
@@ -114,7 +115,7 @@ docker exec -it {workspace-container-id} bash  //windows
 ```
 然后访问浏览器访问dsshop.test，能够访问Nginx的页面，就可以进行下面的安装了
 
-#### 安装DSSHOP管理端(后台代码)
+### 安装DSSHOP管理端(后台代码)
 在Laradock同级目录下面
 ```shell
 git clone https://github.com/dspurl/dsshop.git
@@ -151,7 +152,7 @@ PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 ```
 
-#### 安装DSSHOP管理端(前端代码)
+### 安装DSSHOP管理端(前端代码)
 ```shell
 cd ../admin
 #不要在linux下执行，会报错，推荐windows
@@ -167,7 +168,7 @@ admin
 admin
 ```
 
-#### 小程序代码本地展示
+### 小程序代码本地展示
 ```shell
 cd ../trade/Dsshop
 npm install 
@@ -178,10 +179,10 @@ npm install
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 
-#### 运行小程序
+### 运行小程序
 需要安装sass的插件，然后HBuilder会自动开启微信开发工具，代码会转为微信小程序的代码
 ![](/16.png)
 ![](/17.png)
 
-#### uni-app介绍
-https://uniapp.dcloud.io/quickstart
+### uni-app介绍
+[https://uniapp.dcloud.io/quickstart](https://uniapp.dcloud.io/quickstart "uni-app")
