@@ -94,13 +94,16 @@ git clone https://github.com/laradock/laradock.git
 下载image并生成container启动, 这一步最好换成国内源，需要一些时间安装
 ```shell
 cd laradock
+# 修改.env文件
+APP_CODE_PATH_HOST=../
+cd nginx  //在这个目录里修改Nginx配置
 docker-compose up -d nginx php-fpm mysql redis
 ```
 
 https://hub-mirror.c.163.com
 ![](/18.png)
 ```shell
-docker ps  //查看安装结果
+docker ps  //查看安装结果，注意Nginx端口映射
 ```
 ![](/15.png)
 
@@ -109,11 +112,6 @@ docker ps  //查看安装结果
 docker-compose exec workspace bash  //Linux or Macos
 docker exec -it {workspace-container-id} bash  //windows
 ```
-修改windows的hosts文件
-```shell
-127.0.0.1 dsshop.test
-```
-然后访问浏览器访问dsshop.test，能够访问Nginx的页面，就可以进行下面的安装了
 
 ### 安装DSSHOP管理端(后台代码)
 在Laradock同级目录下面
@@ -151,7 +149,21 @@ php artisan passport:client --password
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 ```
-
+修改windows的hosts文件
+```shell
+127.0.0.1 dsshop.test
+```
+然后访问浏览器访问dsshop.test:端口，看是否能够访问Laravel /路径
+```shell
+//laradock/nginx配置了一个88端口映射指向dsshop/api/public 目录
+server {
+    listen 88;
+    listen [::]:80;
+    server_name laravel.test;
+    root /var/www/dsshop/api/public;
+    ····
+```
+![](/19.png)
 ### 安装DSSHOP管理端(前端代码)
 ```shell
 cd ../admin
