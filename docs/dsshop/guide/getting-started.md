@@ -25,9 +25,10 @@ git clone https://github.com/dspurl/dsshop.git
 ```shell
 cd ./api
 composer install
+# 修改.env.dev为.env
 php artisan key:generate
 php artisan passport:keys
-#修改.env.dev为.env，添加数据库信息
+# 添加数据库信息
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -120,9 +121,10 @@ git clone https://github.com/dspurl/dsshop.git
 docker exec -it laradock_workspace_1 bash  //进入container
 cd dsshop/api
 composer install
+# 修改.env.dev为.env
 php artisan key:generate
 php artisan passport:keys
-#修改.env.dev为.env，添加数据库信息
+# 添加数据库信息
 DB_CONNECTION=mysql
 DB_HOST= mysql //填127.0.0.1会报找不到IP
 DB_PORT=3306

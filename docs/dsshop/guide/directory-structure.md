@@ -75,7 +75,6 @@ sidebarDepth: 2
 │   ├── package.json
 │   ├── phpunit.xml
 │   └── server.php
-├── static
 ├── `template` (**可选的**)
 ├── trade
 ├── plugin
