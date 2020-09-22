@@ -102,11 +102,11 @@ docker-compose up -d nginx php-fpm mysql redis
 ```
 
 https://hub-mirror.c.163.com
-![](/18.png)
+![](/image/18.png)
 ```shell
 docker ps  //查看安装结果，注意Nginx端口映射
 ```
-![](/15.png)
+![](/image/15.png)
 
 进入container(后续操作会用到)
 ```shell
@@ -165,7 +165,7 @@ server {
     root /var/www/dsshop/api/public;
     ····
 ```
-![](/19.png)
+![](/image/19.png)
 ### 安装DSSHOP管理端(前端代码)
 ```shell
 cd ../admin
@@ -195,8 +195,8 @@ npm install
 
 ### 运行小程序
 需要安装sass的插件，然后HBuilder会自动开启微信开发工具，代码会转为微信小程序的代码
-![](/16.png)
-![](/17.png)
+![](/image/16.png)
+![](/image/17.png)
 
 ### uni-app介绍
 [https://uniapp.dcloud.io/quickstart](https://uniapp.dcloud.io/quickstart "uni-app")

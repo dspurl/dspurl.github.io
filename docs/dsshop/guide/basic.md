@@ -45,5 +45,5 @@ secret #修改为对应的APP_KEY
 ### 微信小程序配置相关
 - `开发->开发设置`配置服务器域名、业务域名
 - `功能->订阅消息`添加模板，标题为`订单发货通知`，具体参考下图，然后获取到模板ID，填写到WECHAT_SUBSCRIPTION_INFORMATION_SHIPMENTS
-![](/11.png)
+![](/image/11.png)
 - 开通微信支付，参考[账号关联（AppID绑定）](https://pay.weixin.qq.com/static/pay_setting/appid_protocol.shtml "账号关联（AppID绑定）")

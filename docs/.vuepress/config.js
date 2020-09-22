@@ -53,9 +53,12 @@ module.exports = {
             title: '插件',
             path: '/dsshop/guide/plugin',
           },{
+            title: '常用功能',
+            path: '/dsshop/guide/common',
+          },{
             title: '发行说明',
             path: '/dsshop/guide/issue',
-          },
+          }
         ]
       },
       {

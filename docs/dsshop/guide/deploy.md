@@ -15,7 +15,7 @@ php artisan view:cache
 ### 定时任务
 - 定时任务涉及linux(这里拿宝塔为例)和laravel
 - 进入宝塔-计划任务-添加计划任务，按下图配置
-![](/14.png)
+![](/image/14.png)
 ```shell
 /www/server/php/72/bin/php /www/wwwroot/项目目录/artisan schedule:run >> /dev/null 2>&1
 ```
