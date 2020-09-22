@@ -1,5 +1,5 @@
-# 常用功能
-## 消息通知
+# 消息通知
+## 参数说明
 - 参考：[https://learnku.com/docs/laravel/7.x/notifications/7489](https://learnku.com/docs/laravel/7.x/notifications/7489 "https://learnku.com/docs/laravel/7.x/notifications/7489")
 - 消息通知分为手动添加和添加观察者
 
@@ -13,14 +13,14 @@
 |list|array||否|列表|
 |remark|string||否|备注|
 
-#### list 的合法值
+### list 的合法值
 
 |属性|类型|默认值|必填|说明|
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 |keyword|string||是|键名，一般为4个字符，不然引响排版美观|
 |data|string||是|键值，一般为20个字符以内，不然引响排版美观|
 
-### 手动添加
+## 手动添加
 ``` php
 // 发送的内容
 $invoice=[
@@ -46,7 +46,7 @@ foreach ($users as $user) {
     $user->notify(new InvoicePaid($invoice)); // 发送通知
 }
 ```
-### 观察者
+## 观察者
 ```  php
 // 第一步：创建观察者
 php artisan make:observer NoticeObserver
@@ -168,7 +168,7 @@ class UserObserver
 // 为 User 模型注册观察者
 User::observe(UserObserver::class);
 ```
-### 其它操作
+## 其它操作
 - 访问通知
 ``` php
 $user = App\User::find(1);
