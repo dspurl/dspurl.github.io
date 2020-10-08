@@ -2,7 +2,7 @@
 ## 配置文件
 ### 后端配置相关
 - 后端配置文件在config目录下，但实际配置时，并不需要去修改该目录下的文件，而是直接修改`.env`、`.env.dev`、`.env.prod`
-- 以下是常用的配置参数说明
+- 以下是常用的配置参数说明,更多配置参数请查看`api/config`
 ```markdown
 APP_KEY='' #应用程序密钥执行php artisan key:generate可生成
 APP_DEBUG=true #测试环境开启，正常环境就关闭
@@ -24,6 +24,8 @@ WECHAT_MINI_PROGRAM_SECRET="" #微信小程序secret
 WECHAT_PAYMENT_APPID="" #微信支付appid
 WECHAT_PAYMENT_MCH_ID="" #微信支付mch_id
 WECHAT_PAYMENT_KEY="" #微信支付key
+WECHAT_PAYMENT_CERT_PATH="storage/pay/weixin/apiclient_cert.pem" #微信支付公钥
+WECHAT_PAYMENT_KEY_PATH="storage/pay/weixin/apiclient_key.pem" #微信支付私钥
 WECHAT_SUBSCRIPTION_INFORMATION_SHIPMENTS="" #订单发货通知ID
 SMS_ALIYUN_ACCESS_ID="" #阿里短信access_id
 SMS_ALIYUN_SECRET="" #阿里短信secret
@@ -42,8 +44,17 @@ host #修改为对应的RSET API地址
 #App.vue 41行
 secret #修改为对应的APP_KEY
 ```
-### 微信小程序配置相关
+## 微信小程序配置相关
 - `开发->开发设置`配置服务器域名、业务域名
 - `功能->订阅消息`添加模板，标题为`订单发货通知`，具体参考下图，然后获取到模板ID，填写到WECHAT_SUBSCRIPTION_INFORMATION_SHIPMENTS
 ![](/image/11.png)
 - 开通微信支付，参考[账号关联（AppID绑定）](https://pay.weixin.qq.com/static/pay_setting/appid_protocol.shtml "账号关联（AppID绑定）")
+#### 修改后端配置文件,添加微信支付相关配置
+```
+WECHAT_PAYMENT_APPID="" #微信支付appid
+WECHAT_PAYMENT_MCH_ID="" #微信支付mch_id
+WECHAT_PAYMENT_KEY="" #微信支付key
+WECHAT_PAYMENT_CERT_PATH="storage/pay/weixin/apiclient_cert.pem" #微信支付公钥
+WECHAT_PAYMENT_KEY_PATH="storage/pay/weixin/apiclient_key.pem" #微信支付私钥
+```
+> 其它小程序配置参考微信小程序配置

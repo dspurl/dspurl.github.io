@@ -66,6 +66,14 @@ module.exports = {
             path: '/dsshop/guide/common',
           },
           {
+            title: '小程序手机授权登录',
+            path: '/dsshop/guide/mini-authorization-login',
+          },
+          {
+            title: '在线支付',
+            path: '/dsshop/guide/payment',
+          },
+          {
             title: '使用手册',
             path: '/dsshop/document/exploit',
           },
