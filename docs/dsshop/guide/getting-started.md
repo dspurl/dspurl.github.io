@@ -79,8 +79,8 @@ cd ../trade/Dsshop
 npm install 
 # HBuilder X导入trade/Dsshop目录
 #trade/Dsshop/App.vue修改API地址
-#32行  host = "http://dsshop.com/api/v1/app/"
-#40行  secret: 'API的.env中的APP_KEY'
+#33行  host = "http://dsshop.com/api/v1/app/"
+#52行  secret: 'API的.env中的APP_KEY'
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 
@@ -188,8 +188,8 @@ cd ../trade/Dsshop
 npm install 
 # HBuilder X导入trade/Dsshop目录
 #trade/Dsshop/App.vue修改API地址
-#32行  host = "http://dsshop.com/api/v1/app/"
-#40行  secret: 'API的.env中的APP_KEY'
+#33行  host = "http://dsshop.com/api/v1/app/"
+#52行  secret: 'API的.env中的APP_KEY'
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 

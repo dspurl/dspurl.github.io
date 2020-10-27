@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.5.2">
     <link rel="icon" href="/dsshop_logo.ico">
     <meta name="description" content="从零开始，让你走入DSHOP的世界！">
-    <link rel="preload" href="/assets/css/0.styles.12ccec48.css" as="style"><link rel="preload" href="/assets/js/app.57d30711.js" as="script"><link rel="preload" href="/assets/js/2.2a9f2847.js" as="script"><link rel="preload" href="/assets/js/15.45d2d5d0.js" as="script"><link rel="prefetch" href="/assets/js/10.21f5c3bd.js"><link rel="prefetch" href="/assets/js/11.c5a23769.js"><link rel="prefetch" href="/assets/js/12.518ab6d9.js"><link rel="prefetch" href="/assets/js/13.d7797046.js"><link rel="prefetch" href="/assets/js/14.fe0822a8.js"><link rel="prefetch" href="/assets/js/16.ceab881b.js"><link rel="prefetch" href="/assets/js/17.8d5a141d.js"><link rel="prefetch" href="/assets/js/18.ac5092a8.js"><link rel="prefetch" href="/assets/js/19.0029496b.js"><link rel="prefetch" href="/assets/js/20.01d1f187.js"><link rel="prefetch" href="/assets/js/3.992bf787.js"><link rel="prefetch" href="/assets/js/4.7db6f4ef.js"><link rel="prefetch" href="/assets/js/5.6f7bd7f9.js"><link rel="prefetch" href="/assets/js/6.5ce172e8.js"><link rel="prefetch" href="/assets/js/7.ecb1e46e.js"><link rel="prefetch" href="/assets/js/8.e1cbf707.js"><link rel="prefetch" href="/assets/js/9.8444df8e.js">
+    <link rel="preload" href="/assets/css/0.styles.12ccec48.css" as="style"><link rel="preload" href="/assets/js/app.063d0307.js" as="script"><link rel="preload" href="/assets/js/2.2a9f2847.js" as="script"><link rel="preload" href="/assets/js/15.2f30400c.js" as="script"><link rel="prefetch" href="/assets/js/10.b6091e8b.js"><link rel="prefetch" href="/assets/js/11.1d32e1a9.js"><link rel="prefetch" href="/assets/js/12.ae54556e.js"><link rel="prefetch" href="/assets/js/13.a65f5d60.js"><link rel="prefetch" href="/assets/js/14.7557e5fd.js"><link rel="prefetch" href="/assets/js/16.c192766d.js"><link rel="prefetch" href="/assets/js/17.8d5a141d.js"><link rel="prefetch" href="/assets/js/18.371dbd1f.js"><link rel="prefetch" href="/assets/js/19.7d20d986.js"><link rel="prefetch" href="/assets/js/20.2caa0df8.js"><link rel="prefetch" href="/assets/js/3.992bf787.js"><link rel="prefetch" href="/assets/js/4.7db6f4ef.js"><link rel="prefetch" href="/assets/js/5.de87f280.js"><link rel="prefetch" href="/assets/js/6.90e6f04b.js"><link rel="prefetch" href="/assets/js/7.7d8d41ec.js"><link rel="prefetch" href="/assets/js/8.e1cbf707.js"><link rel="prefetch" href="/assets/js/9.8b70d185.js">
     <link rel="stylesheet" href="/assets/css/0.styles.12ccec48.css">
   </head>
   <body>
@@ -69,8 +69,8 @@ admin
 <span class="token function">npm</span> <span class="token function">install</span> 
 <span class="token comment"># HBuilder X导入trade/Dsshop目录</span>
 <span class="token comment">#trade/Dsshop/App.vue修改API地址</span>
-<span class="token comment">#32行  host = &quot;http://dsshop.com/api/v1/app/&quot;</span>
-<span class="token comment">#40行  secret: 'API的.env中的APP_KEY'</span>
+<span class="token comment">#33行  host = &quot;http://dsshop.com/api/v1/app/&quot;</span>
+<span class="token comment">#52行  secret: 'API的.env中的APP_KEY'</span>
 <span class="token comment"># HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="二-基于laradock安装"><a href="#二-基于laradock安装" class="header-anchor">#</a> 二. 基于Laradock安装</h2> <h3 id="安装laradock"><a href="#安装laradock" class="header-anchor">#</a> <a href="https://laradock.io/getting-started/" target="_blank" rel="noopener noreferrer">安装Laradock<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h3> <p>window 安装docker.exe</p> <p>下载Laradock仓库</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">git</span> clone https://github.com/laradock/laradock.git
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>下载image并生成container启动, 这一步最好换成国内源，需要一些时间安装</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> laradock
@@ -139,8 +139,8 @@ admin
 <span class="token function">npm</span> <span class="token function">install</span> 
 <span class="token comment"># HBuilder X导入trade/Dsshop目录</span>
 <span class="token comment">#trade/Dsshop/App.vue修改API地址</span>
-<span class="token comment">#32行  host = &quot;http://dsshop.com/api/v1/app/&quot;</span>
-<span class="token comment">#40行  secret: 'API的.env中的APP_KEY'</span>
+<span class="token comment">#33行  host = &quot;http://dsshop.com/api/v1/app/&quot;</span>
+<span class="token comment">#52行  secret: 'API的.env中的APP_KEY'</span>
 <span class="token comment"># HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="运行小程序"><a href="#运行小程序" class="header-anchor">#</a> 运行小程序</h3> <p>需要安装sass的插件，然后HBuilder会自动开启微信开发工具，代码会转为微信小程序的代码
 <img src="/image/16.png" alt=""> <img src="/image/17.png" alt=""></p> <h3 id="uni-app介绍"><a href="#uni-app介绍" class="header-anchor">#</a> uni-app介绍</h3> <p><a href="https://uniapp.dcloud.io/quickstart" title="uni-app" target="_blank" rel="noopener noreferrer">https://uniapp.dcloud.io/quickstart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
@@ -152,6 +152,6 @@ admin
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.57d30711.js" defer></script><script src="/assets/js/2.2a9f2847.js" defer></script><script src="/assets/js/15.45d2d5d0.js" defer></script>
+    <script src="/assets/js/app.063d0307.js" defer></script><script src="/assets/js/2.2a9f2847.js" defer></script><script src="/assets/js/15.2f30400c.js" defer></script>
   </body>
 </html>
