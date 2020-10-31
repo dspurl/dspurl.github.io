@@ -39,10 +39,8 @@ PASSPORT_CLIENT_SECRET="" #Passport OAuth认证的client_secret
 ### uni-app配置相关
 - uni-app需要配置二块地方
 ```markdown
-#App.vue 32行
-host #修改为对应的RSET API地址
-#App.vue 41行
-secret #修改为对应的APP_KEY
+#trade/Dsshop/utils/config.js
+#该文件可以配置生产环境、测试环境和本地环境，都有中文注明，修改NODE_ENV即可在打包时区分生产和测试环境
 ```
 ## 微信小程序配置相关
 - `开发->开发设置`配置服务器域名、业务域名
