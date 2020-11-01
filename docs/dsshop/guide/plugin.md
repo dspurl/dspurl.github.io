@@ -98,7 +98,8 @@ pages //插件对应的模板
 {
   "admin": "",  // 后台API路由，将会自动添加到 api/routes/api.php里面
   "permission": "",  //后台模板路由，将会自动添加到 admin/src/store/permission.js里面
-  "app": " ", // APP路由，将会自动添加到 api/routes/api.php里面
+  "app": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是需要用户登录权限验证的
+  "notValidatedApp": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是不需要验证用户登录状态的
   "uniApp": ""  // APP模板路由，将会自动添加到 trade/Dsshop/pages.json里面
 }
 ```
