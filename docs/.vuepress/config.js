@@ -35,6 +35,10 @@ module.exports = {
             path: '/dsshop/guide/getting-started',
           },
           {
+            title: '常见问题',
+            path: '/dsshop/guide/faq',
+          },
+          {
             title: '目录结构',
             path: '/dsshop/guide/directory-structure',
           },

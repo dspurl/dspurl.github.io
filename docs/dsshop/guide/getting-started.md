@@ -26,8 +26,6 @@ git clone https://github.com/dspurl/dsshop.git
 cd ./api
 composer install
 # 修改.env.dev为.env
-php artisan key:generate
-php artisan passport:keys
 # 添加数据库信息
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -49,9 +47,13 @@ php artisan generate:demo
 # 加载纯净数据
 # php artisan generate:pure
 php artisan storage:link
+# 生成APP_KEY
+php artisan key:generate
+# 生成oauth文件
+php artisan passport:keys
 # 创建密码授权客户端
 php artisan passport:client --password
-#修改.env.dev为.env，添加OAuth认证信息
+#修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 ```
@@ -122,8 +124,6 @@ docker exec -it laradock_workspace_1 bash  //进入container
 cd dsshop/api
 composer install
 # 修改.env.dev为.env
-php artisan key:generate
-php artisan passport:keys
 # 添加数据库信息
 DB_CONNECTION=mysql
 DB_HOST= mysql //填127.0.0.1会报找不到IP
@@ -145,9 +145,13 @@ php artisan generate:demo
 # 加载纯净数据
 # php artisan generate:pure
 php artisan storage:link
+# 生成APP_KEY
+php artisan key:generate
+# 生成oauth文件
+php artisan passport:keys
 # 创建密码授权客户端
 php artisan passport:client --password
-#修改.env.dev为.env，添加OAuth认证信息
+#修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 ```
