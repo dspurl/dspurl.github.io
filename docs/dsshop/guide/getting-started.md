@@ -53,6 +53,7 @@ php artisan key:generate
 php artisan passport:keys
 # 创建密码授权客户端
 php artisan passport:client --password
+# 选择`admins`
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
@@ -151,6 +152,7 @@ php artisan key:generate
 php artisan passport:keys
 # 创建密码授权客户端
 php artisan passport:client --password
+# 选择`admins`
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"

@@ -1,4 +1,6 @@
 # 常见问题
+## composer install安装出错
+- 可以通过composer update修复，也可直接将composer.lock删除，然后再执行`composer install`
 ## Client error: POST http://127.1.1/oauth/token resulted in a 401 Unauthorized response: {"error":"invalid_client","message":"Client authentication failed"}
 - 以上错误推测因为生成oauth密钥过早造成，故新的文档最后才生成该密钥
 - 解决办法就是先删除已经生成的`oauth-private.key`和`oauth-public.key`，然后再重新执行`php artisan passport:keys`
