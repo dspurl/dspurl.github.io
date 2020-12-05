@@ -34,3 +34,6 @@
          aliases:
           - dsshop.text
 ```
+## 商品搜一个字为什么无法查询出来？
+- 商品搜索采用mysql的全文搜索功能，默认需要2个字，如果需要支持1个字，需要修改mysql.conf中的`ngram_token_size=1`
+- 具体可以查看[模糊搜索改为全文搜索](https://github.com/dspurl/dsshop/pull/74 "模糊搜索改为全文搜索") 
