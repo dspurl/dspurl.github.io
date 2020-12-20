@@ -1,7 +1,13 @@
 # 消息通知
 ## 参数说明
 - 参考：[https://learnku.com/docs/laravel/7.x/notifications/7489](https://learnku.com/docs/laravel/7.x/notifications/7489 "https://learnku.com/docs/laravel/7.x/notifications/7489")
-- 消息通知分为手动添加和添加观察者
+- 消息通知分为手动添加和添加观察者，这里采用手动添加的方式
+- 如发送的是小程序/公众号/APP通知时，请确保参数包含`template`并配置了对应的模板ID
+- 后台消息通知接收需要关联`user`用户，通过配置`NOTIFICATION_ACCOUNT`实现，以逗号分割多个用户
+- 只有配置了小程序、微信公众号、邮箱后，用户开启了对应的通知才会生效（小程序除外）
+```
+NOTIFICATION_ACCOUNT = "1,2"
+```
 
 |属性|类型|默认值|必填|说明|
 | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -12,6 +18,11 @@
 |price|number||否|金额，分，如100（1元），类型为2时必填|
 |list|array||否|列表|
 |remark|string||否|备注|
+|admin|Boole||否|是否为后台通知，true：是，为空：否|
+|user_id|string||否|用户ID，如admin为true时，不用传|
+|parameter|array||否|不需要传|
+|template|string||是|通知模板标识，见下表|
+|prefers|array|['database']|否|通知途径：默认为站内信|
 
 ### list 的合法值
 
@@ -21,156 +32,58 @@
 |data|string||是|键值，一般为20个字符以内，不然引响排版美观|
 |copy|boolean||是|是否支持拷贝，true：是，false：否|
 
+### template 的合法值，参考`config/notification.php`
+
+|值|说明|微信公众号模版编号|
+| ------------ | ------------ |------------ |
+|finish_payment|订单支付成功通知|OPENTM416836000|
+|order_confirm_receipt|订单确认收货通知|OPENTM202314085|
+|delivery_release|发货通知|OPENTM414956350|
+|refund_success|退款成功通知|OPENTM414889350|
+|admin_order_send_good|待发货提醒|OPENTM409521500|
+|admin_order_completion|订单完成通知|OPENTM412598101|
+
+#### 使用：在env中配置对应的模板ID，模板ID通过微信公众号中的模板消息中查找对应的"微信公众号模版编号"进行添加，然后将得到的"模版ID"填入
+```php
+WECHAT_SUBSCRIPTION_INFORMATION_FINISH_PAYMENT=
+WECHAT_SUBSCRIPTION_INFORMATION_ORDER_CONFIRM_RECEIPT=
+WECHAT_SUBSCRIPTION_INFORMATION_SHIPMENTS=
+WECHAT_SUBSCRIPTION_INFORMATION_REFUND_SUCCESS=
+WECHAT_SUBSCRIPTION_INFORMATION_ADMIN_ORDER_SEND_GOOD=
+WECHAT_SUBSCRIPTION_INFORMATION_ADMIN_ORDER_COMPLETION=
+```
+
+### prefers 的合法值
+
+|值|说明|
+| ------------ | ------------ |
+|database|站内信，默认|
+|sms|短信|
+|miniweixin|微信小程序订阅消息|
+|wechat|微信公众号模板消息|
+
+## 增加或删除通知途径
+- 修改`Notifications/Common.php`，`prefers`中添加或删除通知途径即可
+
 ## 手动添加
 ``` php
-// 发送的内容
-$invoice=[
-    'type'=> InvoicePaid::NOTIFICATION_TYPE_DEAL,
-    'title'=>'对订单：'.$GoodIndent->identification.'的付款',
-    'list'=>[
-        [
-            'keyword'=>'支付方式',
-            'data'=>'余额支付'
-        ]
-    ],
-    'price'=>$GoodIndent->total,
-    'url'=>'/pages/finance/bill_show?id='.$Money->id,
-    'prefers'=>['database']
-];
-// 发给某一用户
-$user = User::find(auth('web')->user()->id);//指定用户，也可为当前登录用户。
-$user->notify(new InvoicePaid($invoice));
+// 添加通知统一入口代码`Notifications/Common.php`
+// 在每个通知途径添加对应的代码
 
-// 群发
-$users = User::all();
-foreach ($users as $user) {
-    $user->notify(new InvoicePaid($invoice)); // 发送通知
-}
-```
-## 观察者
-```  php
-// 第一步：创建观察者
-php artisan make:observer NoticeObserver
-// 第二步：根据实际情况添加通知代码，代码就是将手动添加的代码，写在具体的步骤中，步骤说明如下
-class UserObserver
-{
-
-    /**
-     * 监听数据即将创建的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function creating(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据创建后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function created(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将更新的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function updating(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据更新后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function updated(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将保存的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function saving(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据保存后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function saved(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将删除的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function deleting(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据删除后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function deleted(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将从软删除状态恢复的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function restoring(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据从软删除状态恢复后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function restored(User $user)
-    {
-
-    }
-}
-// 第三步： 在对应的Model 类的 boot 方法添加观察者代码
-// 为 User 模型注册观察者
-User::observe(UserObserver::class);
+// 发送
+$Common=(new Common)->finishPayment([
+    'id'=>$GoodIndent->id,  //订单ID
+    'identification'=>$GoodIndent->identification,  //订单号
+    'name'=> $GoodIndent->goodsList[0]->name.(count($GoodIndent->goodsList)>1 ? '等多件': ''),    //商品名称
+    'total'=>$GoodIndent->total,    //订单金额
+    'type'=> '余额支付',
+    'template'=>'finish_payment',   //通知模板标识
+    'time'=>$GoodIndent->pay_time,  //下单时间(付款时间)
+    'user_id'=>auth('web')->user()->id    //用户ID
+]);
 ```
 ## 其它操作
-- 访问通知
+- 访问database通知
 ``` php
 $user = App\User::find(1);
 $user->notifications->toArray(); //所用该用户下的通知

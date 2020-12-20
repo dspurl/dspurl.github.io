@@ -57,6 +57,8 @@ php artisan passport:client --password
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
+# 需要安装PhpRedis
+# 参考：https://github.com/dspurl/dsshop/pull/84
 ```
 - 访问项目对应的域名，如果正常显示页面，说明搭建成功了
 ### DSSHOP前端代码部署(后台)
