@@ -37,3 +37,24 @@
 ### 商品搜一个字为什么无法查询出来？
 - 商品搜索采用mysql的全文搜索功能，默认需要2个字，如果需要支持1个字，需要修改mysql.conf中的`ngram_token_size=1`
 - 具体可以查看[模糊搜索改为全文搜索](https://github.com/dspurl/dsshop/pull/74 "模糊搜索改为全文搜索") 
+
+### laradock备份报`Backup failed because The dump process failed with exitcode 127 : Command not found : sh: 1: mysqldump: not found`
+- 打开你的`workspace/Dockerfile`最后一行添加以下代码
+```shell
+#
+#--------------------------------------------------------------------------
+# mysql-client
+#--------------------------------------------------------------------------
+#
+
+USER root
+
+RUN apt update && \
+    apt install -y mysql-client
+```
+- 然后执行以下代码
+```shell
+docker-compose down
+docker-compose build workspace
+docker-compose up -d redis nginx mysql
+```
