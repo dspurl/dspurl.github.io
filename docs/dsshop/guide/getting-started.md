@@ -35,6 +35,7 @@
 ## 常用开发工具
 - window10系统
 - [Laravel Homestead(免费)](https://learnku.com/docs/laravel/7.x/homestead/7450 "Laravel Homestead") 为了快速搭建window10下的linux+laravel环境（当然你也可以用phpStudy，这里使用linux虚拟机，为的是熟悉linux的命令行，你可以使用xshell像连接服务器的方式连接本地的linux服务器）
+- [Laradock(免费)](https://github.com/laradock/laradock "Laradock") 基于docker容器的laravel集成环境，强烈推荐使用，可以减少因环境部署产生的诸多问题！！！
 - [phpStorm编辑器](https://www.jetbrains.com/phpstorm/ "phpStorm编辑器")(收费)下载后，需要安装插件（[laravel相关插件](https://www.jianshu.com/p/7d3158fa33b7 "laravel相关插件")、[VUE相关插件](https://www.jianshu.com/p/051bb0109d70 "VUE相关插件")）
 - Windows PowerShell(window10自带的shell工具，在需要使用的目录，shift+右击就可以找到)
 - [Xshell+Xftp连接linux服务器工具](https://www.xshellcn.com/xiazai.html "Xshell+Xftp连接linux服务器工具")
