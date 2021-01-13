@@ -1,4 +1,37 @@
 # 快速上手
+## 傻瓜式安装包
+> 5步快速搭建属于自己的DSSHOP商城
+> 
+> 如不想碰到错误，请严格按照以下步骤和要求执行，以下方法已真机验证
+> 
+> 安装包在环境满足的前提下，可不用写一行代码，即可搭建完整个项目
+> 
+> 优点：搭建方便，无需懂代码，全程引导安装；缺点：项目压缩编译，二开不友好
+
+#### 前期准备
+- 一台linux服务器(laradock最佳，非laradock请在安装时的`mysql`和`redis`服务器填写`127.0.0.1`)
+- php >= 7.2.5
+- mysql >=5.7
+- php开启以下扩展`curl`、`pdo`、`openssl`、`redis`
+- 以下目录具备读写权限(777权限)`storage/framework/`、`storage/logs/`、`bootstrap/cache/`
+
+#### 安装步骤
+1. 下载dsshop安装包
+2. 将项目解压，得到dsshop目录，将dsshop目录下所有文件移动到网站根目录（一般为www）
+3. 通过浏览器访问http://dsshop.test/install（请根据自己实际域名替换掉http://dsshop.test）
+4. 根据以下5步完成项目安装
+![](/image/install_01.png)
+![](/image/install_02.png)
+![](/image/install_03.png)
+![](/image/install_04.png)
+![](/image/install_05.png)
+5. 访问h5和后台，看是否正常访问，如果可以，恭喜你安装成功了
+6. 最后将根目录下的install目录移除，记住一定要移除掉！！！
+7. 小程序的使用：当安装成功后，请将根目录的mp-weixin目录下载到本地，通过“微信开放者工具”导入该目录
+![](/image/install_06.png)
+![](/image/install_07.png)
+![](/image/install_08.png)
+
 ## 常用开发工具
 - window10系统
 - [Laravel Homestead(免费)](https://learnku.com/docs/laravel/7.x/homestead/7450 "Laravel Homestead") 为了快速搭建window10下的linux+laravel环境（当然你也可以用phpStudy，这里使用linux虚拟机，为的是熟悉linux的命令行，你可以使用xshell像连接服务器的方式连接本地的linux服务器）
