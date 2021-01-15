@@ -16,7 +16,9 @@
 - 以下目录具备读写权限(777权限)`storage/framework/`、`storage/logs/`、`bootstrap/cache/`
 
 #### 安装步骤
-1. 下载dsshop安装包
+1. 下载dsshop发行版，下载方式如下图，也可以下载guide分支的代码
+![](/image/install_09.png)
+![](/image/install_10.png)
 2. 将项目解压，得到dsshop目录，将dsshop目录下的api目录下所有文件移动到网站根目录（一般为www）
 3. 通过浏览器访问http://dsshop.test/install（请根据自己实际域名替换掉http://dsshop.test）
 4. 根据以下5步完成项目安装
