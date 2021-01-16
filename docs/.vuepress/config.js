@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: ['@vuepress/medium-zoom'],
   title: 'DSWJCMS',
   description: '从零开始，让你走入DSHOP的世界！',
   head: [
@@ -76,6 +77,10 @@ module.exports = {
           {
             title: '在线支付',
             path: '/dsshop/guide/payment',
+          },
+          {
+            title: '权限与侧边栏',
+            path: '/dsshop/guide/jurisdiction',
           },
           {
             title: '使用手册',

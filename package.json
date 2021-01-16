@@ -6,6 +6,7 @@
   "author": "pang453758463 <383354826@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.8.0",
     "vuepress": "^1.5.4"
   },
   "scripts": {
