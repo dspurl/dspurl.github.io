@@ -5,6 +5,14 @@
 ## 添加权限
 - 先看下示例图
 ![](/image/jurisdiction_01.png)
+- 第一步： “用户管理” -> "权限管理" -> 添加一个顶级类目，如`demo`
+![](/image/jurisdiction_02.png)
+- 第二步： 添加二级类目，上级类目选择第一步添加的权限
+- 第三步： 添加三级类目，上级类目选择第二步添加的权限
+- 第四步： 编辑 `permission.js`文件，添加权限和对应的模板路径（一定要添加二级类目到`index`，这样三级目录才能正常访问）
+![](/image/jurisdiction_03.png)
+- 第五步： 添加权限文件，可复制一份文件，然后修改list.vue（列表），如果存在详情页，请添加`components`目录
+![](/image/jurisdiction_04.png)
 ### 示例代码
 ``` php
 public function weixinPayment($body,$fee,$openid,$trade_type='JSAPI'){
