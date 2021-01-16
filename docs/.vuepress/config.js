@@ -65,6 +65,7 @@ module.exports = {
       },
       {
         title: '文档',
+        collapsable: false, 
         children: [
           {
             title: '消息通知',
