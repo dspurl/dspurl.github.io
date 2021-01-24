@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /image/dsshop_logo.jpg
-heroText: DSHOP电商商城
+heroText: DSSHOP电商商城
 tagline: 前后端分离架构，VUE2.0+Laravel7，免费开源可商用。
 actionText: 快速上手 →
 actionLink: /dsshop/guide/

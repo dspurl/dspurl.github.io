@@ -1,5 +1,5 @@
 # 介绍
-[![vue](https://img.shields.io/badge/vue-2.6.10-brightgreen.svg "vue")](https://github.com/vuejs/vue "vue") [![laravel](https://img.shields.io/badge/laravel-7.22.4-brightgreen.svg "laravel")](https://github.com/laravel/laravel "laravel") ![Github stars](https://img.shields.io/github/stars/dspurl/dsshop.svg)
+[![vue](https://img.shields.io/badge/vue-2.6.10-brightgreen.svg "vue")](https://github.com/vuejs/vue "vue") [![laravel](https://img.shields.io/badge/laravel-7.30.4-brightgreen.svg "laravel")](https://github.com/laravel/laravel "laravel") ![Github stars](https://img.shields.io/github/stars/dspurl/dsshop.svg)
 
 Dsshop是一个商城解决方案，它采用前后端分离，后端基于laravel,前端基于Vue，我们不生成代码，我们只是代码的搬运工，60%的复制粘贴，30%的思考，10%的代码量。
 > 本项目定位：入门简单，无需一行代码；深入需要多人协同完成，亦可全栈实现。
