@@ -22,50 +22,129 @@ module.exports = {
         ]
       },
       { text: 'GitHub', link: 'https://github.com/dspurl/dsshop', target:'_blank' },
+      { text: 'Gitee', link: 'https://dswjcms_purl.gitee.io/dsshop', target:'_blank' },
     ],
     sidebar: [
       {
-        title: '指南',
+        title: '基础',
+        collapsable: false,
         children: [
           {
-            title: '介绍',
-            path: '/dsshop/guide/',
-          },
-          {
-            title: '快速上手',
+            title: '安装',
             path: '/dsshop/guide/getting-started',
           },
           {
-            title: '常见问题',
-            path: '/dsshop/guide/faq',
+            title: '介绍',
+            path: '/dsshop/guide/',
           },
           {
             title: '目录结构',
             path: '/dsshop/guide/directory-structure',
           },
           {
-            title: '基本配置',
-            path: '/dsshop/guide/basic',
+            title: '常见问题',
+            path: '/dsshop/guide/faq',
           },
           {
             title: '多语言支持',
             path: '/dsshop/guide/i18n',
           },
           {
-            title: '部署',
-            path: '/dsshop/guide/deploy',
-          },{
-            title: '插件',
-            path: '/dsshop/guide/plugin',
-          },{
             title: '发行说明',
             path: '/dsshop/guide/issue',
           }
         ]
       },
       {
-        title: '文档',
-        collapsable: false, 
+        title: '技术概览',
+        collapsable: false,
+        children: [
+          {
+            title: '架构',
+            path: '/dsshop/guide/',
+          },
+          {
+            title: '兼容性',
+            path: '/dsshop/guide/',
+          }
+        ]
+      },
+      {
+        title: '生产部署',
+        collapsable: false,
+        children: [
+          {
+            title: '部署',
+            path: '/dsshop/guide/deploy',
+          }
+        ]
+      },
+      {
+        title: '多人协作',
+        collapsable: false,
+        children: [
+          {
+            title: '介绍',
+            path: '/dsshop/guide/',
+          },
+        ]
+      },
+      {
+        title: '核心功能',
+        collapsable: false,
+        children: [
+          {
+            title: '功能列表',
+            path: '/dsshop/guide/function',
+          },
+        ]
+      },
+      {
+        title: '后端开发指南',
+        collapsable: false,
+        children: [
+          {
+            title: '介绍',
+            path: '/dsshop/guide/',
+          },
+          {
+            title: '项目配置',
+            path: '/dsshop/guide/basic',
+          },
+        ]
+      },
+      
+      {
+        title: '前端开发指南',
+        collapsable: false,
+        children: [
+          {
+            title: '介绍',
+            path: '/dsshop/guide/',
+          }
+        ]
+      },
+      {
+        title: 'UI设计指南',
+        collapsable: false,
+        children: [
+          {
+            title: '介绍',
+            path: '/dsshop/guide/',
+          }
+        ]
+      },{
+        title: '管理员指南',
+        collapsable: false,
+        children: [
+          {
+            title: '介绍',
+            path: '/dsshop/guide/',
+          }
+        ]
+      },{
+        title: '功能',
+        collapsable: false,
         children: [
           {
             title: '消息通知',
@@ -82,15 +161,30 @@ module.exports = {
           {
             title: '权限与侧边栏',
             path: '/dsshop/guide/jurisdiction',
-          },
+          }
+        ]
+      },{
+        title: '插件',
+        collapsable: false,
+        children: [
           {
-            title: '使用手册',
-            path: '/dsshop/document/exploit',
-          },
+            title: '介绍',
+            path: '/dsshop/guide/plugin',
+          }
+        ]
+      },
+      {
+        title: '文档',
+        collapsable: false, 
+        children: [
           {
             title: '第三方文档',
             path: '/dsshop/document/third-party',
-          }
+          },
+          // {
+          //   title: '使用手册',
+          //   path: '/dsshop/document/exploit',
+          // }
         ]
       }
     ]

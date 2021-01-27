@@ -6,7 +6,7 @@
 - 解决办法就是先删除已经生成的`oauth-private.key`和`oauth-public.key`，然后再重新执行`php artisan passport:keys`
 ### [curl] 7: Failed to connect to xxx port 80: Connection refused
 - 由于laradock没有正确配置造成的错误
-- 需要修改docker-compose.yml的NGINX Server中的networks部分，如下代码，在`aliases`和`aliases`添加自己的域名，如下`dsshop.text`
+- 需要修改docker-compose.yml的NGINX Server中的networks部分，如下代码，在`aliases`和`aliases`添加自己的域名，如下`dsshop.test`
 ``` shell
 ### NGINX Server ##################################
 
@@ -29,10 +29,10 @@
       networks:
         frontend:
          aliases:
-          - dsshop.text
+          - dsshop.test
         backend:
          aliases:
-          - dsshop.text
+          - dsshop.test
 ```
 ### 商品搜一个字为什么无法查询出来？
 - 商品搜索采用mysql的全文搜索功能，默认需要2个字，如果需要支持1个字，需要修改mysql.conf中的`ngram_token_size=1`
