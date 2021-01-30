@@ -8,9 +8,6 @@
 <template>
 	<view>
 		<view>
-			时间为：{{timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}
-		</view>
-		<view>
 			时间为：{{time}}
 		</view>
 	</view>
