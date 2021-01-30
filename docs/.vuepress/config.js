@@ -64,6 +64,10 @@ module.exports = {
             path: '/dsshop/guide/',
           },
           {
+            title: '命名规范',
+            path: '/dsshop/guide/naming-notations',
+          },
+          {
             title: '兼容性',
             path: '/dsshop/guide/',
           }
@@ -111,6 +115,10 @@ module.exports = {
             title: '项目配置',
             path: '/dsshop/guide/basic',
           },
+          {
+            title: '工具库',
+            path: '/dsshop/guide/api-instrument',
+          },
         ]
       },
       
@@ -121,7 +129,11 @@ module.exports = {
           {
             title: '介绍',
             path: '/dsshop/guide/',
-          }
+          },
+          {
+            title: '工具库',
+            path: '/dsshop/guide/vue-instrument',
+          },
         ]
       },
       {
