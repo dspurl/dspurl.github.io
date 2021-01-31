@@ -1,16 +1,16 @@
 # 部署
 ## 环境搭建
-### 宝塔安装（以LINUX为例）
-- [宝塔Linux面板安装教程](https://www.bt.cn/bbs/thread-19376-1-1.html "宝塔官网")
-- 安装后，需要在软件管理中添加以下软件（未写版本的，安装最新版本）
-- Nginx、PHP-7.4、phpMyAdmin、Redis
-- 添加站点，参考[网站管理](https://www.kancloud.cn/chudong/bt2017/424221 "网站管理")
 ## RSET API部署(laravel)
 - 参考 [Laravel部署](https://learnku.com/docs/laravel/7.x/deployment/7452 "Laravel部署")
 ```shell
 php artisan storage:link
 composer install
 php artisan view:cache
+```
+### 资源路径迁移
+- 如果需要将本地的资源路径一键替换成线上路径的话，请执行以下代码
+``` shell
+php artisan resource:migration
 ```
 ### 定时任务
 - 定时任务涉及linux(这里拿宝塔为例)和laravel
