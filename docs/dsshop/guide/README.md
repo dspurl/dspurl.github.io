@@ -24,4 +24,5 @@ Dsshop是一套商城解决方案，它采用最新的前后端分离技术，�
 ## 加入我们
 - 有问题可以直接discussions，请详细说明问题，如果你不习惯用discussions，也可以通过issue。
 - dsshop交流群，微信扫码进群
+
 ![](/image/12.png)

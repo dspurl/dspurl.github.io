@@ -97,3 +97,33 @@ imgMasterData: {
 	specification: [80, 150, 200, 250, 300, 350]
 },
 ```
+## 前台
+### 登录验证
+#### `loginCheck`
+``` vue
+<script>
+	export default{
+		onLoad() {
+			this.loginCheck()
+		},
+		methods:{
+			...mapMutations(['loginCheck']),
+		}
+	}
+</script>
+```
+### 登录状态获取
+#### `hasLogin`
+``` vue
+<script>
+	export default{
+		onLoad() {
+			if (this.hasLogin){
+			}
+		},
+		computed:{
+			...mapState(['hasLogin'])
+		},
+	}
+</script>
+```
