@@ -35,6 +35,8 @@
 │   │   ├── console //任务调度资源
 │   │   ├── models  //模型资源
 │   │   ├── plugin  //插件资源
+│   │   │   ├── admin //后台API
+│   │   │   ├── client //客户端API
 │   │   └── requests    //表单验证资源
 │   ├── database    //数据表资源
 │   ├── uniApp  //uni-app资源
