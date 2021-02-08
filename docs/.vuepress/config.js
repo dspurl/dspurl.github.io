@@ -61,7 +61,7 @@ module.exports = {
         children: [
           {
             title: '架构',
-            path: '/dsshop/guide/',
+            path: '/dsshop/guide/framework',
           },
           {
             title: '命名规范',

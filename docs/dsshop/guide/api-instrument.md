@@ -10,3 +10,7 @@ if($request->has('sort')){
     $q->orderBy($sortFormatConversion[0],$sortFormatConversion[1]);
 }
 ```
+### 用户日志
+```php
+Event(new UserLogEvent($user, $request));
+```

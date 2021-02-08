@@ -7,6 +7,13 @@ php artisan storage:link
 composer install
 php artisan view:cache
 ```
+### 缓存机制
+```shell 
+#缓存应用程序的所有事件和监听器的列表
+php artisan event:cache
+#销毁缓存
+php artisan event:clear
+```
 ### 资源路径迁移
 - 如果需要将本地的资源路径一键替换成线上路径的话，请执行以下代码
 ``` shell
