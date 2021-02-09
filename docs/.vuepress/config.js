@@ -66,10 +66,6 @@ module.exports = {
           {
             title: '命名规范',
             path: '/dsshop/guide/naming-notations',
-          },
-          {
-            title: '兼容性',
-            path: '/dsshop/guide/',
           }
         ]
       },
@@ -81,16 +77,6 @@ module.exports = {
             title: '部署',
             path: '/dsshop/guide/deploy',
           }
-        ]
-      },
-      {
-        title: '多人协作',
-        collapsable: false,
-        children: [
-          {
-            title: '介绍',
-            path: '/dsshop/guide/',
-          },
         ]
       },
       {
@@ -109,7 +95,7 @@ module.exports = {
         children: [
           {
             title: '介绍',
-            path: '/dsshop/guide/',
+            path: '/dsshop/guide/api-introduce',
           },
           {
             title: '项目配置',
@@ -128,7 +114,7 @@ module.exports = {
         children: [
           {
             title: '介绍',
-            path: '/dsshop/guide/',
+            path: '/dsshop/guide/vue-introduce',
           },
           {
             title: '工具库',
@@ -136,25 +122,27 @@ module.exports = {
           },
         ]
       },
+      // {
+      //   title: 'UI设计指南',
+      //   collapsable: false,
+      //   children: [
+      //     {
+      //       title: '介绍',
+      //       path: '/dsshop/guide/',
+      //     }
+      //   ]
+      // },
+      // {
+      //   title: '管理员指南',
+      //   collapsable: false,
+      //   children: [
+      //     {
+      //       title: '介绍',
+      //       path: '/dsshop/guide/',
+      //     }
+      //   ]
+      // },
       {
-        title: 'UI设计指南',
-        collapsable: false,
-        children: [
-          {
-            title: '介绍',
-            path: '/dsshop/guide/',
-          }
-        ]
-      },{
-        title: '管理员指南',
-        collapsable: false,
-        children: [
-          {
-            title: '介绍',
-            path: '/dsshop/guide/',
-          }
-        ]
-      },{
         title: '功能',
         collapsable: false,
         children: [
