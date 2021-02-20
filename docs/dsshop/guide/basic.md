@@ -39,6 +39,7 @@ BACKUP_FILES_TIME=02:00   #数据库备份时间（设置后仅备份数据库�
 BACKUP_CLEAN_TIME=02:00   #文件备份时间（设置后仅备份文件，该时间为每天执行时间，如需按周或其它指定时间，请自行配置backup.php文件）
 BACKUP_CLEAN_TIME=02:20 #旧备份清除时间（该时间为每天执行时间，如需按周或其它指定时间，请自行配置backup.php文件）
 BACKUP_RECEIVE_MAIL= #备份结果接收邮箱
+PROJECT_KEY #前端密钥
 ```
 ### 后台配置相关
 - 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`

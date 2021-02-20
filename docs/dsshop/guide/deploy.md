@@ -7,12 +7,11 @@ php artisan storage:link
 composer install
 php artisan view:cache
 ```
-### 缓存机制
-```shell 
-#缓存应用程序的所有事件和监听器的列表
-php artisan event:cache
-#销毁缓存
-php artisan event:clear
+### 配置
+- 以下配置不修改不引响正常使用，修改后可提高网站安全性
+```shell
+PROJECT_KEY #配置前端密钥，可通过php artisan key:generate生成机制生成密钥，也可以自定义
+APP_KEY #重置APP_KEY密钥
 ```
 ### 资源路径迁移
 - 如果需要将本地的资源路径一键替换成线上路径的话，请执行以下代码

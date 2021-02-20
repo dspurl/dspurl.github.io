@@ -34,6 +34,7 @@
 │   │   ├── config  //配置资源
 │   │   ├── console //任务调度资源
 │   │   ├── models  //模型资源
+│   │   ├── observers  //观察者资源
 │   │   ├── plugin  //插件资源
 │   │   │   ├── admin //后台API
 │   │   │   ├── client //客户端API
@@ -79,6 +80,7 @@ console //定时任务相关（需要LINUX支持），对应的路径 `api/app/C
 models  //模型相关资源，对应的路径 `api/app/Models/v1`
 plugin  //插件相关控制器，对应的路径 `api/app/Http/Controllers/v1/Plugin`
 requests //表单验证相关控制器,对应的路径 `api/app/Http/Requests/v1`
+observers //观察者相关代码，对应的路径 `api/app/Observers`
 ```
 #### `coupon/database`
 - 数据迁移资源，和插件相关的数据表都会以迁移文件形式存在，需要在终端运行
@@ -113,7 +115,9 @@ pages //插件对应的模板
   "permission": "",  //后台模板路由，将会自动添加到 admin/src/store/permission.js里面
   "app": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是需要用户登录权限验证的
   "notValidatedApp": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是不需要验证用户登录状态的
-  "uniApp": ""  // APP模板路由，将会自动添加到 trade/Dsshop/pages.json里面
+  "uniApp": "",  // APP模板路由，将会自动添加到 trade/Dsshop/pages.json里面
+  "observers": "",  //观察者路由，将会自动添加到 api/app/Providers/AppServiceProvider的boot里面
+  "wechatChannel": "",  //微信公众号模板消息 api/app/Channels/WechatChannel.php
 }
 ```
 ## 插件开发
