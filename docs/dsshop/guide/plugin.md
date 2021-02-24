@@ -20,6 +20,88 @@
 
 插件是否收费由插件开发者决定，一般可直接下载的均可免费使用
 
+- 为什么我的观察者没有被执行？
+
+请确保正确配置了`$route`，只有存在于`$route`的路由，才会执行当前的观察者；还有一种可能就是你的监听并不是http请求，而是控制器触发（调度任务），那么你需要在判断中加入控制器的判断代码，参考下面的示例代码。
+
+- 为什么我的观察者被执行了多次？
+
+往往被执行多次是因为你并没有做到很好的约束，请加大限制条件，确保只在需要执行的步骤中触发。
+
+## 观察者模式
+> 如果你的插件需要基于其它业务代码或其它插件，那观察者模式是必不可少的，以下会详细介绍如何在插件中使用观察者模式。
+> 观察者模型并不提高代码执行效率，反而会有所降低，但它的好处是解耦，提高项目的可扩展可维护性，对于项目的迭代来说是一种很好的解决方案。
+- 观察者和模型的关系是多对一，即一个模型可以有多个观察者
+- 只有使用模型的save时，观察者才会生效
+### 创建观察者
+- 首先在`app/Observers`目录下创建观察者，一般先创建一个目录，目录名根据取模型名，如`GoodIndent`，再创建一个`Observers`，命名以实际功能命名，如`IndentFailureStockProcessingObserver`，这个观察者的作用是订单失效库存操作
+- 其次就是在`Providers/AppServiceProvider.php`的`boot`方法中，将定义的观察者添加进来，如
+```php
+public function boot()
+{
+    \App\Models\v1\GoodIndent::observe(\App\Observers\GoodIndent\IndentFailureStockProcessingObserver::class);
+}
+```
+### 什么时候下需要使用观察者模式
+- 当你的代码存在耦合性的时候，就可以将耦合代码拆分成观察者模式
+- 当你的插件需要修改项目源代码时，可以使用观察者模式，这样可以确保项目更新后不会引响到自己添加的代码 
+### 示例代码
+```php
+<?php
+
+namespace App\Observers\GoodIndent;
+
+use App\Models\v1\Dhl;
+use App\Models\v1\GoodIndent;
+use App\Models\v1\User;
+use App\Notifications\InvoicePaid;
+use Illuminate\Http\Request;
+
+/**
+ * finish payment
+ * 发货通知
+ * Class ShipmentNotificationObserver
+ * @package App\Observers\GoodIndent
+ */
+class ShipmentNotificationObserver
+{
+    protected $request;
+    // 这里配置需要执行该观察者的路由
+    protected $route = [
+        'admin/indent/shipment'
+    ];
+    // 是否执行观察者，默认为不执行，只有路由存在于$route时才会触发,并且在非http请求时不会触发
+    protected $execute = false;
+
+    public function __construct(Request $request)
+    {
+        if (!app()->runningInConsole()) {
+            $this->request = $request;
+            $path = explode("admin", $request->path());
+            
+            if (count($path) == 2) {
+                $name = 'admin' . $path[1];
+                // $name = 'admin' . preg_replace("/\/\\d+/",'', $path[1]);
+            } else {
+                $path = explode("app", $request->path());
+                $name = 'app' . $path[1];
+                //$name = 'app' . preg_replace("/\/\\d+/",'', $path[1]);
+            }
+        }
+        if (collect($this->route)->contains($name)) {
+            $this->execute = true;
+        }
+    }
+
+    public function updated(GoodIndent $goodIndent)
+    {
+        // 当通过http请求，并存在于$route配置的路由时才触发,或是控制器触发(Console)
+        if (($this->execute || app()->runningInConsole()) && $goodIndent->state == GoodIndent::GOOD_INDENT_STATE_TAKE) {
+            
+        }
+    }
+}
+```
 ## 插件使用说明
 - Dsshop v1.1.0开始支持插件
 - 插件以独立项目发布，由独立个体维护（前期为Dsshop开发者发布和维护）

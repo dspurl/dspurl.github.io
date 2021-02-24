@@ -40,6 +40,9 @@ BACKUP_CLEAN_TIME=02:00   #文件备份时间（设置后仅备份文件，该�
 BACKUP_CLEAN_TIME=02:20 #旧备份清除时间（该时间为每天执行时间，如需按周或其它指定时间，请自行配置backup.php文件）
 BACKUP_RECEIVE_MAIL= #备份结果接收邮箱
 PROJECT_KEY #前端密钥
+ORDER_OVERTIME=10 #订单超时时间(分钟)
+AUTOMATIC_RECEIVING_STATE=true   #是否开启自动收货
+AUTOMATIC_RECEIVING=7   #是否开启自动收货
 ```
 ### 后台配置相关
 - 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`
