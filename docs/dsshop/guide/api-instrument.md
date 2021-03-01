@@ -14,3 +14,13 @@ if($request->has('sort')){
 ```php
 Event(new UserLogEvent($user, $request));
 ```
+### 返回json数据
+#### `resReturn`
+```
+# 返回正确数据
+return resReturn(1, '更新成功');
+# 返回错误数据
+return resReturn(0, '请设置产品规格', Code::CODE_PARAMETER_WRONG);
+# 返回异常错误数据
+throw new \Exception('微信支付失败，请稍后再试！',Code::CODE_PARAMETER_WRONG);
+```
