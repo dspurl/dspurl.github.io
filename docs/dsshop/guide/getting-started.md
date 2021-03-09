@@ -10,7 +10,7 @@
 
 #### 前期准备
 - 一台linux服务器(laradock最佳，非laradock请在安装时的`mysql`和`redis`服务器填写`127.0.0.1`)
-- php >= 7.2.5
+- php >= 7.4
 - mysql >=5.7
 - php开启以下扩展`curl`、`pdo`、`openssl`、`redis`
 - 以下目录具备读写权限(777权限)`storage/framework/`、`storage/logs/`、`bootstrap/cache/`

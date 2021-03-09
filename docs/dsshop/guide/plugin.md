@@ -126,12 +126,12 @@ class ShipmentNotificationObserver
 │   │   ├── api  //app api
 │   │   ├── components    //app组件
 │   │   └── pages    //app模板
-│   ├── dswjcms.json //插件配置
+│   ├── dsshop.json //插件配置
 │   ├── routes.json //路由配置
-└── dswjcms.json    //本地插件配置
+└── dsshop.json    //本地插件配置
 
 ```
-### `dswjcms.json`
+### `dsshop.json`
 - 本地安装的插件列表，用于管理本地插件的安装和更新，格式为
  ```markdown
  [
@@ -177,8 +177,8 @@ components  //插件在uni-app下的组件（插件必须以组件的形式存�
 pages //插件对应的模板
 
 ```
-#### `coupon/dswjcms.json`
-- 这里的dswjcms.json是 `coupon`插件目录下的配置文件
+#### `coupon/dsshop.json`
+- 这里的dsshop.json是 `coupon`插件目录下的配置文件
  ```markdown
 {
     "name": "优惠券",  //插件名称

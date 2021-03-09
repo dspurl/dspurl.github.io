@@ -78,7 +78,7 @@ sidebarDepth: 2
 ├── `template` (**可选的**)
 ├── client
 ├── plugin
-│   ├── dswjcms.json
+│   ├── dsshop.json
 ├── LICENSE
 └── README.md
 

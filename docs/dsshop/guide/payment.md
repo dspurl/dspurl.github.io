@@ -58,61 +58,12 @@ public function weixinPayment($body,$fee,$openid,$trade_type='JSAPI'){
 - 完成支付接口对接，按返回参数返回即可
 ## 新加支付类型说明
 - 首先在前端添加支付类型，如`充值`，然后设置唯一标识
-- 后台`App\Http\Controllers\v1\Element\WeChatController`在`unifiedPayment`方法中添加`case`，把标识填写进去，参考如下代码
+- 后台添加很简单，只需要添加三个观察者，然后编写对应的业务代码即可
 ``` php
-switch ($request->type){
-    case 'goodsIndent':  //商品订单支付
-        $reutn = (new GoodIndent())->payment($request);
-        break;
-}
-```
-- 在对应的Models中添加业务代码，例
-``` php
-public function payment($request){
-    $openid=$request->header('openid');
-    $GoodIndent=static::with(['goodsList'])->find($request->id);
-    $body='对订单：'.$GoodIndent->identification.'的付款';
-    $fee=$GoodIndent->total;
-    $trade_type="JSAPI";
-    $MiniProgram = new MiniProgram();
-    $payment=$MiniProgram->payment($request->platform,$body,$fee,$openid,$trade_type);
-    if($payment['result']== 'error'){
-        return $payment;
-    }
-    $PaymentLog = new PaymentLog();
-    $PaymentLog->name = $body;
-    $PaymentLog->number = $payment['number'];
-    $PaymentLog->money = $GoodIndent->total;
-    $PaymentLog->pay_id = $request->id; //订单ID
-    $PaymentLog->pay_type = 'App\Models\v1\GoodIndent';
-    $PaymentLog->state = PaymentLog::PAYMENT_LOG_STATE_CREATE;
-    $PaymentLog->save();
-    //库存判断
-    foreach ($GoodIndent->goodsList as $indentCommodity){
-        $Good=Good::select('id','is_inventory','inventory')->find($indentCommodity['good_id']);
-        if($Good && $Good->is_inventory == Good::GOOD_IS_INVENTORY_FILM){ //付款减库存
-            if(!$indentCommodity['good_sku_id']){ //非SKU商品
-                if($Good->inventory-$indentCommodity['number']<0){
-                    return [
-                        'result'=>'error',
-                        'msg'=>'存在库存不足的商品，请重新购买'
-                    ];
-                }
-                $Good->inventory = $Good->inventory-$indentCommodity['number'];
-                $Good->save();
-            }else{
-                $GoodSku=GoodSku::find($indentCommodity['good_sku_id']);
-                if($GoodSku->inventory-$indentCommodity['number']<0){
-                    return [
-                        'result'=>'error',
-                        'msg'=>'存在库存不足的SKU商品，请重新购买'
-                    ];
-                }
-                $GoodSku->inventory = $GoodSku->inventory-$indentCommodity['number'];
-                $GoodSku->save();
-            }
-        }
-    }
-    return $payment;
-}
+#商品订单支付生成
+#api\app\Observers\PaymentLog\GoodIndentPaymentCreateObserver.php
+#商品订单支付完成
+#api\app\Observers\PaymentLog\GoodIndentPaymentSucceedObserver.php
+#商品订单退款
+#api\app\Observers\PaymentLog\GoodIndentRefundObserver.php
 ```
