@@ -97,7 +97,7 @@ imgMasterData: {
 	specification: [80, 150, 200, 250, 300, 350]
 },
 ```
-## 前台
+## uni-app
 ### 登录验证
 #### `loginCheck`
 ``` vue
@@ -126,4 +126,25 @@ imgMasterData: {
 		},
 	}
 </script>
+```
+## PC端（nuxt）
+### 缓存
+> 使用了store.js [https://github.com/marcuswestin/store.js/](https://github.com/marcuswestin/store.js/ "https://github.com/marcuswestin/store.js/")
+``` js
+// 设置缓存
+this.store.set('user', { name:'Marcus' })
+
+// 读取缓存
+this.store.get('user')
+
+// 删除缓存
+this.store.remove('user')
+
+// 清空缓存
+this.store.clearAll()
+
+// 循环遍历所有存储的值
+this.store.each(function(value, key) {
+	console.log(key, '==', value)
+})
 ```
