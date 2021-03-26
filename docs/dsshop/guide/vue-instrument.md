@@ -128,6 +128,22 @@ imgMasterData: {
 </script>
 ```
 ## PC端（nuxt）
+### $nuxt
+> nuxt使用`store`或`route`推荐使用$nuxt
+```
+#vue中使用：
+this.$store.state.hasLogin
+#nuxt中使用：
+$nuxt.$store.state.hasLogin
+```
+### 某个链接需要权限验证时
+```
+if(!$nuxt.$store.state.hasLogin){
+	$nuxt.$store.commit('loginCheck')
+	return false
+}
+```
+
 ### 缓存
 > 使用了store.js [https://github.com/marcuswestin/store.js/](https://github.com/marcuswestin/store.js/ "https://github.com/marcuswestin/store.js/")
 ``` js
