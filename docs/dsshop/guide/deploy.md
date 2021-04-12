@@ -1,4 +1,5 @@
 # 部署
+> 因为项目涉及多个终端，推荐分四个子域名进行部署：api(放置laravel项目)、h5(放置h5项目)、admin（放置后台项目）、www（放置nuxt项目）；当然也可以全部部署在www下，但需要自行配置nginx
 ## 环境搭建
 ## RSET API部署(laravel)
 - 参考 [Laravel部署](https://learnku.com/docs/laravel/7.x/deployment/7452 "Laravel部署")
@@ -39,3 +40,47 @@ npm run build:prod
 assetsPublicPath: '/h5/',
 ```
 - 然后将打包好生成的文件上传到服务器，也可以发给别人直接访问（需要对方有本地环境，双击访问index.html无效）
+
+## 移动端搭建
+> 移动端采用uni-app，所以直接使用Huilder X软件即可以完成打包工作
+
+## 网页端搭建
+> 网页端采用vue的nuxt框架开发，部署参考以下步骤
+- 进入`web`目录
+
+```shell
+# 打包
+npm run build
+#将.nuxt nuxt.config.js package.json package-lock.json上传到服务器
+#在服务器端项目根目录安装包
+npm install
+# 测试是否能正常运行，将记录运行后的IP地址
+npm start
+#nginx反向代理
+server
+{
+    listen 80;
+    root /www/wwwroot/dsshop.test;
+    location / {
+            proxy_redirect off;
+            proxy_set_header Host               $host;
+            proxy_set_header X-Real-IP          $remote_addr;
+            proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto  $scheme;
+            proxy_read_timeout          1m;
+            proxy_connect_timeout       1m;
+            proxy_pass                          http://上一步的IP地址:3004;
+    }
+}
+#通过域名如果能正常访问到项目，即项目配置成功
+#服务器安装pm2
+npm i pm2 -g
+pm2 --version
+#将pm2system.config.js的项目名改成对应的项目名，#然后上传到项目根目录
+pm2 start dsshopsystem.config.js
+#查看pm2列表中是否有刚才的进程
+pm2 list
+# 开机自动启动
+pm2 save
+pm2 startup
+```
