@@ -77,6 +77,7 @@ sidebarDepth: 2
 │   └── server.php
 ├── `template` (**可选的**)
 ├── client
+├── web
 ├── plugin
 │   ├── dsshop.json
 ├── LICENSE
@@ -140,6 +141,8 @@ BASE_API: ''    //RSET API地址
 - `api` 后台RSET API代码模板，提供表单验证、控制器、模型参考文件
 - `vue` 后台模板
 ## client目录
-- `Dsshop` APP目录，直接用HBuilder X导入该目录，就可以进行编辑，一套代码编到10个平台，现项目只对h5和微信小程序进行了测试
+- `client` 目录，直接用HBuilder X导入该目录，就可以进行编辑，一套代码编到10个平台，现项目只对h5和微信小程序进行了测试
+## web目录
+- `web` 目录是网站目录，采用nuxt框架搭建，利于网站seo，目录结构参考`admin`
 ## plugin目录
 - `plugin`目录为插件目录，DSSHOP除必要的商城功能外，其它的功能都会以插件的形式发布，除了官方发布插件外，你也可以写自己的插件，插件的好处在于：可扩展性、可移植性、规范性、易维护、易升级

@@ -116,16 +116,23 @@ npm run dev
 admin
 admin
 ```
-### DSSHOP前端代码部署(H5端、小程序端)
+### DSSHOP前端代码部署
+#### H5端、小程序端
 - 先安装[nodejs](https://nodejs.org/en/ "nodejs")和[HBuilder x 用来开发小程序端](https://dcloud.io/hbuilderx.html "HBuilder x 用来开发小程序端")
 ```shell
-cd ../trade/Dsshop
+cd ../client/Dsshop
 npm install 
-# HBuilder X导入trade/Dsshop目录
-# trade/Dsshop/utils/config.js修改服务器地址
+# HBuilder X导入client/Dsshop目录
+# client/Dsshop/utils/config.js修改服务器地址
 # 修改`BaseURL`为API访问地址
 # 修改`secret`为API密钥'API的.env中的APP_KEY'
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
+```
+#### 网站
+> 网站采用nuxt框架，本地测试和其它vue项目一样
+```shell
+cd ../web
+npm install
 ```
 
 ## 二. 基于Laradock安装
@@ -231,10 +238,10 @@ admin
 
 ### 小程序代码本地展示
 ```shell
-cd ../trade/Dsshop
+cd ../client/Dsshop
 npm install 
-# HBuilder X导入trade/Dsshop目录
-# trade/Dsshop/utils/config.js修改服务器地址
+# HBuilder X导入client/Dsshop目录
+# client/Dsshop/utils/config.js修改服务器地址
 # 修改`BaseURL`为API访问地址
 # 修改`secret`为API密钥'API的.env中的APP_KEY'
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
@@ -247,3 +254,11 @@ npm install
 
 ### uni-app介绍
 [https://uniapp.dcloud.io/quickstart](https://uniapp.dcloud.io/quickstart "uni-app")
+
+### 网站代码本地展示
+```shell
+cd ../web
+npm install
+npm run dev
+```
+
