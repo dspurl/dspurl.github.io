@@ -12,5 +12,8 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "yarn": "^1.22.10"
   }
 }
