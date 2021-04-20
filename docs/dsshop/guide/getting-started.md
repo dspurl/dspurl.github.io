@@ -1,5 +1,6 @@
 # 安装
 ## 傻瓜式安装
+>
 > 5步快速搭建属于自己的DSSHOP商城，功能参考项目演示，适用线上直接部署
 > 
 > 如不想碰到错误，请严格按照以下步骤和要求执行，以下方法已真机验证
@@ -132,6 +133,7 @@ npm install
 > 网站采用nuxt框架，本地测试和其它vue项目一样
 ```shell
 cd ../web
+cp .env.prod .env   //修改配置信息
 npm install
 ```
 
@@ -258,6 +260,7 @@ npm install
 ### 网站代码本地展示
 ```shell
 cd ../web
+cp .env.prod .env   //修改配置信息
 npm install
 npm run dev
 ```

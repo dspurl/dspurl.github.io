@@ -128,6 +128,22 @@ imgMasterData: {
 </script>
 ```
 ## PC端（nuxt）
+### 配置文件
+```
+NODE_ENV=prod	//当前环境
+APP_DEBUG=true	//调试模式
+APP_NAME=DSSHOP商城-跨终端商城解决方案	//项目名称
+APP_SHORT_NAME= DSSHOP	//项目简称
+APP_DESCRIPTION=免费开源可商用，快速搭建属于自己的独立商城网店系统，一次搭建适配多终端	//项目全局描述
+APP_KEYWORD=商城网店系统|商城|网店|免费商城|免费网店	// 项目全局关键字
+APP_ICP=浙ICP备110120119	// 项目备案号
+API_URL_BROWSER=http://dsshop.test/api/v1/app/	//项目访问地址，暂时没有使用
+API_URL=http://dsshop.test/api/v1/app/	//项目api地址
+PROJECT_KEY=base64:szoJ3mSx/5U7zOsJfU7s4pSahiwdh01x6badmz5FtCM=	//前端密钥
+CACHE_PR=DSSHOP-PC-	//项目缓存前缀
+IBS_URL=https://restapi.amap.com/v3	//地图地址
+IBS_KEY=	//地图密钥
+```
 ### $nuxt
 > nuxt使用`store`或`route`推荐使用$nuxt
 ```
@@ -143,6 +159,19 @@ if(!$nuxt.$store.state.hasLogin){
 	return false
 }
 ```
+### 修改项目主色调
+- 修改`web\assets\css\main.scss`的`$font-color-main`
+- 修改`web\nuxt.config.js`的`loading`的`color`
+```js
+export default {
+  loading: {
+    color: '#fa524c',
+    height: '2px'
+  },
+  ....
+}
+```
+- 根据[https://element.eleme.cn/#/zh-CN/component/custom-theme](https://element.eleme.cn/#/zh-CN/component/custom-theme "https://element.eleme.cn/#/zh-CN/component/custom-theme")设置主题，然后替换掉`web\assets\theme`目录下的所有文件
 
 ### 缓存
 > 使用了store.js [https://github.com/marcuswestin/store.js/](https://github.com/marcuswestin/store.js/ "https://github.com/marcuswestin/store.js/")
