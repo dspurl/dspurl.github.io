@@ -97,6 +97,15 @@ imgMasterData: {
 	specification: [80, 150, 200, 250, 300, 350]
 },
 ```
+### 根据角色定制不同的后台首页
+> 默认后台为统一首页模式，如需要根据不同角色开发不同的后台首页，请修改`admin\src\views\Dashboard\index.vue`
+```vue
+created() {
+	if (!this.roles.includes('admin')) {
+		this.currentRole = 'editorDashboard'
+	}
+}
+```
 ## uni-app
 ### 登录验证
 #### `loginCheck`
