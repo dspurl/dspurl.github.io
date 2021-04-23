@@ -50,7 +50,7 @@ AUTOMATIC_EVALUATE=12   #多少天后自动好评
 - 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`
 ### uni-app配置相关
 ```markdown
-#trade/Dsshop/utils/config.js
+#client/Dsshop/utils/config.js
 #该文件可以配置生产环境、测试环境和本地环境，都有中文注明，修改NODE_ENV即可在打包时区分生产和测试环境
 lbsQq: #腾讯地图的key，注意需要开通WebService API
 domainName: #API域名
