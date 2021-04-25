@@ -18,5 +18,5 @@ features:
   details: 内置RBAC控制权限模块，全程界面配置。
 - title: 稳定更新
   details: 定期发行，向上兼容，平滑更新，减少因更新造成的不必要开支。
-footer: MIT Licensed | Copyright © 2020-present Evan You
+footer: MIT Licensed | Copyright © 2020-present dsshop
 ---
