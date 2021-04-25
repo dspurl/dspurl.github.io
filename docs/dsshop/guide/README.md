@@ -30,7 +30,7 @@ DSSHOP中文名：点石商城系统，因本人2012年开始做开源项目：�
 - 网站演示地址：[https://dsshop.dswjcms.com](https://dsshop.dswjcms.com "https://dsshop.dswjcms.com")
 - h5、小程序、安卓演示
 
-H5 | 微信小程序 | 安卓
+微信小程序 | H5 | 安卓
 ---|---|---
 ![](/image/gh_e79e7cd855e7_258.jpg) | ![](/image/13.png) | ![](/image/1618405140569.png)
 
