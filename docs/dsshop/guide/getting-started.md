@@ -126,7 +126,7 @@ npm install
 # HBuilder X导入client/Dsshop目录
 # client/Dsshop/utils/config.js修改服务器地址
 # 修改`BaseURL`为API访问地址
-# 修改`secret`为API密钥'API的.env中的APP_KEY'
+# `secret`有个默认密钥，如需自定义，只需在`.env`中配置`PROJECT_KEY`
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 #### 网站
@@ -245,7 +245,7 @@ npm install
 # HBuilder X导入client/Dsshop目录
 # client/Dsshop/utils/config.js修改服务器地址
 # 修改`BaseURL`为API访问地址
-# 修改`secret`为API密钥'API的.env中的APP_KEY'
+# `secret`有个默认密钥，如需自定义，只需在`.env`中配置`PROJECT_KEY`
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
 

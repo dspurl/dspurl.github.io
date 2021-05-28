@@ -122,16 +122,11 @@ module.exports = {
           },
         ]
       },
-      // {
-      //   title: 'UI设计指南',
-      //   collapsable: false,
-      //   children: [
-      //     {
-      //       title: '介绍',
-      //       path: '/dsshop/guide/',
-      //     }
-      //   ]
-      // },
+      {
+        title: '模板开发指南',
+        collapsable: false,
+        path: '/dsshop/guide/template'
+      },
       // {
       //   title: '管理员指南',
       //   collapsable: false,

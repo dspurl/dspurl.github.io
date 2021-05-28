@@ -14,6 +14,13 @@ if($request->has('sort')){
 ```php
 Event(new UserLogEvent($user, $request));
 ```
+### 返回错误信息
+```php
+// 以异常的形式返回
+throw new \Exception('没有生成所需数据库迁移文件', Code::CODE_INEXISTENCE);
+// 以JSON的形式返回
+return resReturn(0, '参数错误', Code::CODE_PARAMETER_WRONG);
+```
 ### 返回json数据
 #### `resReturn`
 ```
