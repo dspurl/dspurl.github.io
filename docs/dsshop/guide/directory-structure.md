@@ -5,36 +5,37 @@ sidebarDepth: 2
 ```markdown
 .
 ├── admin
-│   ├── build
-│   ├── config
-│   │   ├── dev.env.js
-│   │   ├── index.js
-│   │   ├── prod.env.js
-│   ├── node_modules
-│   ├── src
-│   │   ├── api
-│   │   ├── assets
-│   │   ├── components
-│   │   ├── directive
-│   │   ├── filters
-│   │   ├── icons
-│   │   ├── lang
-│   │   ├── router
-│   │   ├── store
-│   │   ├── styles
-│   │   ├── utils
-│   │   ├── vendor
-│   │   ├── views
-│   │   ├── App.vue
-│   │   ├── errorLog.js
-│   │   ├── errorLog.js
-│   │   ├── main.js
-│   │   └── permission.js
-│   ├── static
-│   ├── index.html
-│   ├── favicon.ico
-│   └── package.json
-│ 
+│   ├── vue2
+│   │   ├── element-admin-v3
+│   │   │   ├── build
+│   │   │   ├── config
+│   │   │   │   ├── dev.env.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── prod.env.js
+│   │   │   ├── node_modules
+│   │   │   ├── src
+│   │   │   │   ├── api
+│   │   │   │   ├── assets
+│   │   │   │   ├── components
+│   │   │   │   ├── directive
+│   │   │   │   ├── filters
+│   │   │   │   ├── icons
+│   │   │   │   ├── lang
+│   │   │   │   ├── router
+│   │   │   │   ├── store
+│   │   │   │   ├── styles
+│   │   │   │   ├── utils
+│   │   │   │   ├── vendor
+│   │   │   │   ├── views
+│   │   │   │   ├── App.vue
+│   │   │   │   ├── errorLog.js
+│   │   │   │   ├── errorLog.js
+│   │   │   │   ├── main.js
+│   │   │   │   └── permission.js
+│   │   │   ├── static
+│   │   │   ├── index.html
+│   │   │   ├── favicon.ico
+│   │   │   └── package.json
 ├── api
 │   ├── app
 │   │   ├── Broadcasting
@@ -92,6 +93,7 @@ sidebarDepth: 2
 > admin目录结构请参考vue和vue-element-admin
 
 ## admin目录
+- admin目录的下一级目录为使用的框架，如`vue2` `vue3`，然后该目录下存放着模板，如`element-admin-v3`
 - `build` 项目构建(webpack)相关代码
 - `config` 配置目录，包括端口号等。我们初学可以使用默认的。
 - `node_modules` npm 加载的项目依赖模块

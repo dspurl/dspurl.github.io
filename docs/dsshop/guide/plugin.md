@@ -108,26 +108,27 @@ class ShipmentNotificationObserver
 ## 结构
 ```markdown
 .
-├── coupon
-│   ├── admin //后台资源
-│   │   ├── api  //后台api
-│   │   └── views    //后台模板
-│   ├── api //API资源
-│   │   ├── config  //配置资源
-│   │   ├── console //任务调度资源
-│   │   ├── models  //模型资源
-│   │   ├── observers  //观察者资源
-│   │   ├── plugin  //插件资源
-│   │   │   ├── admin //后台API
-│   │   │   ├── client //客户端API
-│   │   └── requests    //表单验证资源
-│   ├── database    //数据表资源
-│   ├── uniApp  //uni-app资源
-│   │   ├── api  //app api
-│   │   ├── components    //app组件
-│   │   └── pages    //app模板
-│   ├── dsshop.json //插件配置
-│   ├── routes.json //路由配置
+├── list    //插件
+│   ├── coupon
+│   │   ├── admin //后台资源
+│   │   │   ├── api  //后台api
+│   │   │   └── views    //后台模板
+│   │   ├── api //API资源
+│   │   │   ├── config  //配置资源
+│   │   │   ├── console //任务调度资源
+│   │   │   ├── models  //模型资源
+│   │   │   ├── observers  //观察者资源
+│   │   │   ├── plugin  //插件资源
+│   │   │   │   ├── admin //后台API
+│   │   │   │   ├── client //客户端API
+│   │   │   └── requests    //表单验证资源
+│   │   ├── database    //数据表资源
+│   │   ├── client  //客户端
+│   │   │   ├── nuxt-web  //网站
+│   │   │   └── uni-app   //app
+│   │   ├── dsshop.json //插件配置
+│   │   ├── routes.json //路由配置
+├── template    //插件生成文件所需的模板
 └── dsshop.json    //本地插件配置
 
 ```
@@ -138,7 +139,7 @@ class ShipmentNotificationObserver
    {
      "name": "coupon", // 插件包名
      "versions": "",  //插件版本
-     "is_delete": "",  //是否删除
+     "is_delete": "",  //是否卸载
      "time":""  //插件安装时间
    }
    ...
@@ -187,24 +188,35 @@ pages //插件对应的模板
     "download": "",  //插件下载地址
     "url": "",  //插件地址
     "versions": "0.0.1", //插件版本
+    "author": "", //插件作者
+    "instructions": "", //插件说明，将在下载时自动生成README.md
+    "local": 1, //是否本地环境，自己创建的插件会为1
+    "publish": 1, //是否已发布，发布后的插件可以安装和卸载
 }
 ```
 #### `coupon/routes.json`
-- 路由配置文件，该文件保存了后台、API、uni-app所有涉及到路由配置的地方，格式参考如下
+- 路由配置文件，该文件保存了后台、API、app所有涉及到路由配置的地方，格式参考如下
 ```json
 {
   "admin": "",  // 后台API路由，将会自动添加到 api/routes/api.php里面
   "permission": "",  //后台模板路由，将会自动添加到 admin/src/store/permission.js里面
   "app": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是需要用户登录权限验证的
   "notValidatedApp": " ", // APP路由，将会自动添加到 api/routes/api.php里面，这里是不需要验证用户登录状态的
-  "uniApp": "",  // APP模板路由，将会自动添加到 client/Dsshop/pages.json里面
   "observers": "",  //观察者路由，将会自动添加到 api/app/Providers/AppServiceProvider的boot里面
   "wechatChannel": "",  //微信公众号模板消息 api/app/Channels/WechatChannel.php
+  "routeLangAdmin":"",   //路由语言包，用于插件获取后台路由所用 api/resources/lang/zn/route.php
+  "routeLangClient":"",   //路由语言包，用于插件获取app路由所用 api/resources/lang/zn/route.php
+  "relevance":[],   //关联的文件
+  "client":[],   //关联的客户端模板列表
+  "admin":[],   //关联的后台模板列表
+  "db": [], //生成的数据列表
 }
 ```
 ## 插件开发
 - 首先请确保你已经了解插件的结构
 - 你想开发的插件是无耦合的，且可扩展的
+- 插件开发中，如果添加了其它文件，可添加到相关文件
+- 插件升级不建议针对之前版本的文件有删除操作，如果涉及到数据表的修改，请用迁移文件的形式进行处理
 ### 第一步
 - 根据自己的想法，开发功能模块，包括且不限于：模型、控制器、验证器、后台模板、uni-app模板、uni-app组件等等
 ### 第二步：解耦

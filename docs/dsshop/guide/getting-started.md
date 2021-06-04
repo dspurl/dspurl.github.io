@@ -227,12 +227,12 @@ server {
 cd ../admin
 #不要在linux下执行，会报错，推荐windows
 npm install 
-#admin/config/dev.env.js or dev.prod.js修改自己的api地址
+#admin/config/dev.env.js or prod.env.js修改自己的api地址
 BASE_API: '"http://172.27.16.1/api/v1/admin/"',  //172.27.16.1是window主机的局域网IP
 
 npm run dev  
 
-npm run build:prod  //对应 dev.prod.js
+npm run build:prod  //对应 prod.env.js
 # 默认后台账号、密码
 admin
 admin
