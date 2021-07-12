@@ -137,6 +137,36 @@ created() {
 </script>
 ```
 ## PC端（nuxt）
+### 时间格式
+#### `timestamp | moment('YYYY-MM-DD HH:mm:ss')`
+- 时间格式:YYYY.MM.DD HH:mm:ss，年为"YYYY"，月为"MM"，日为"DD"，时为"HH"，分为"mm"，秒为"ss"，格式可以自由搭配
+- 参考：[vue-moment](https://github.com/brockpetrie/vue-moment#readme "vue-moment")
+- 参考：[moment.js](http://momentjs.cn/ "moment.js")
+
+``` vue
+<template>
+	<view>
+		<view>
+			时间为：{{time}}
+		</view>
+	</view>
+</template>
+
+<script>
+    export { parseTime } from '@/utils'
+	export default{
+		data() {
+			return {
+				time: null,
+				timestamp: '1581170184'
+			}
+		},
+		onLoad() {
+			this.time = parseTime(this.timestamp, 'yyyy-mm-dd');
+		}
+	}
+</script>
+```
 ### 配置文件
 ```
 NODE_ENV=prod	//当前环境
