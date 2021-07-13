@@ -8,7 +8,45 @@
 ```
 NOTIFICATION_ACCOUNT = "1,2"
 ```
-
+### 示例代码
+```php
+$invoice = [
+    'type' => InvoicePaid::NOTIFICATION_TYPE_DEAL,
+    'title' => '恭喜您！购买的商品已支付成功，我们会尽快安排发货哦！么么哒！~~',
+    'list' => [
+        [
+            'keyword' => '订单编号',
+            'data' => $parameter['identification']
+        ],
+        [
+            'keyword' => '商品名称',
+            'data' => $parameter['name']
+        ],
+        [
+            'keyword' => '订单总额',
+            'data' => sprintf("%01.2f", $parameter['total'] / 100),
+        ],
+        [
+            'keyword' => '支付方式',
+            'data' => $parameter['type']
+        ],
+        [
+            'keyword' => '订单状态',
+            'data' => '已支付'
+        ],
+        [
+            'keyword' => '下单时间',
+            'data' => $parameter['time']
+        ]
+    ],
+    'price' => $parameter['total'],
+    'url' => '/pages/indent/detail?id=' . $parameter['id'],
+    'parameter' => $parameter,
+    'prefers' => ['database', 'mail', 'wechat']
+];
+$user = User::find($parameter['user_id']);
+$user->notify(new InvoicePaid($invoice));
+```
 |属性|类型|默认值|必填|说明|
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 |title|string||是|标题，不要太长，太长引响排版|
@@ -63,24 +101,56 @@ WECHAT_SUBSCRIPTION_INFORMATION_ADMIN_ORDER_COMPLETION=
 |wechat|微信公众号模板消息|
 
 ## 增加或删除通知途径
-- 修改`Notifications/Common.php`，`prefers`中添加或删除通知途径即可
+- 修改`Notifications/InvoicePaid.php`，`prefers`中添加或删除通知途径即可
 
-## 手动添加
-``` php
-// 添加通知统一入口代码`Notifications/Common.php`
-// 在每个通知途径添加对应的代码
-
-// 发送
-$Common=(new Common)->finishPayment([
-    'id'=>$GoodIndent->id,  //订单ID
-    'identification'=>$GoodIndent->identification,  //订单号
-    'name'=> $GoodIndent->goodsList[0]->name.(count($GoodIndent->goodsList)>1 ? '等多件': ''),    //商品名称
-    'total'=>$GoodIndent->total,    //订单金额
-    'type'=> '余额支付',
-    'template'=>'finish_payment',   //通知模板标识
-    'time'=>$GoodIndent->pay_time,  //下单时间(付款时间)
-    'user_id'=>auth('web')->user()->id    //用户ID
-]);
+## 增加新的通知模板
+> 以下以微信公众号通知为例
+- 先去微信公众平台选择自己想要的通知模板
+- 添加配置常量
+> 命名规则:以下划线拼接，如是管理员通知，名称前面加`admin_`，如`finish_payment`、`admin_subscribe`
+```php
+#api\config\notification.php
+'wechat'=>[ //微信公众号
+    'finish_payment'=>env('WECHAT_SUBSCRIPTION_INFORMATION_FINISH_PAYMENT',''),  //订单支付成功通知
+],
+```
+- 添加模板代码
+> 命名规则：根据上一步配置的常量名去掉下划线，并采用驼峰命名法命名，如`finishPayment`、`adminSubscribe`
+```php
+#api\app\Channels\WechatChannel.php
+protected function finishPayment($notifiable, $message)
+    {
+        $data = [
+            'template_id' => $this->information[$message['template']],
+            'touser' => $notifiable->wechat,
+            'data' => [
+                'first' => '恭喜您！购买的商品已支付成功，我们会尽快安排发货哦！么么哒！~~',
+                'keyword1' => $message['identification'],
+                'keyword2' => $message['name'],
+                'keyword3' => sprintf("%01.2f", $message['total'] / 100),
+                'keyword4' => '已支付',
+                'keyword5' => $message['time'],
+                'remark' => '欢迎您的到来！',
+            ],
+        ];
+        if ($this->miniweixin) {
+            $data['miniprogram'] = [
+                'appid' => $this->miniweixin,
+                'pagepath' => '/pages/indent/detail?id=' . $message['id'],
+            ];
+        } else {
+            $data['url'] = request()->root() . '/h5/#/pages/indent/detail?id=' . $message['id'];
+        }
+        //发送记录
+        $send = $this->app->template_message->send($data);
+        $NotificationLog = new NotificationLog();
+        $NotificationLog->user_id = $message['user_id'];
+        $NotificationLog->type = NotificationLog::NOTIFICATION_LOG_TYPE_MINIWEIXIN;
+        $NotificationLog->msg = json_encode($data);
+        $NotificationLog->feedback = json_encode($send);
+        $NotificationLog->state = $send['errcode'] == 0 ? NotificationLog::NOTIFICATION_LOG_STATE_OK : NotificationLog::NOTIFICATION_LOG_STATE_ERROR;
+        $NotificationLog->save();
+    }
 ```
 ## 其它操作
 - 访问database通知
