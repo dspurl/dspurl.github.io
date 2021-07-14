@@ -134,7 +134,9 @@ npm install
 ```shell
 cd ../web
 cp .env.prod .env   //修改配置信息
-npm install
+APP_ENV=local   // 修改APP_ENV为local
+yarn install
+yarn run dev
 ```
 
 ## 二. 基于Laradock安装
@@ -261,7 +263,8 @@ npm install
 ```shell
 cd ../web
 cp .env.prod .env   //修改配置信息
-npm install
-npm run dev
+APP_ENV=local   // 修改APP_ENV为local
+yarn install
+yarn run dev
 ```
 

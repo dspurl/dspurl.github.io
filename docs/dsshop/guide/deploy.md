@@ -50,12 +50,12 @@ assetsPublicPath: '/h5/',
 
 ```shell
 # 打包
-npm run build
+yarn run build
 #将.nuxt nuxt.config.js package.json package-lock.json上传到服务器
 #在服务器端项目根目录安装包
-npm install
+yarn install
 # 测试是否能正常运行，将记录运行后的IP地址
-npm start
+yarn start
 #nginx反向代理
 server
 {
