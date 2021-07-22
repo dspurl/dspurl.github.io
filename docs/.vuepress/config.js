@@ -169,19 +169,10 @@ module.exports = {
         ]
       },
       {
-        title: '文档',
-        collapsable: false, 
-        children: [
-          {
-            title: '第三方文档',
-            path: '/dsshop/document/third-party',
-          },
-          // {
-          //   title: '使用手册',
-          //   path: '/dsshop/document/exploit',
-          // }
-        ]
-      }
+        title: '接口文档',
+        collapsable: false,
+        path: '/dsshop/document/third-party'
+      },
     ]
   }
 }
