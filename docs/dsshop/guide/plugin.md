@@ -183,11 +183,14 @@ pages //插件对应的模板
 {
     "name": "优惠券",  //插件名称
     "abbreviation": "coupon",  //插件缩写
+    "img": "",  // 插件缩略图
     "describe": "支持创建满减、随机、折扣优惠券",  //插件描述
-    "download": "",  //插件下载地址
     "url": "",  //插件地址
     "versions": "0.0.1", //插件版本
     "author": "", //插件作者
+    "author_url": "", //作者空间地址
+    "portrait": "", //作者头像
+    "category": 0, //类型，当前只有插件，故值为0
     "instructions": "", //插件说明，将在下载时自动生成README.md
     "local": 1, //是否本地环境，自己创建的插件会为1
     "publish": 1, //是否已发布，发布后的插件可以安装和卸载

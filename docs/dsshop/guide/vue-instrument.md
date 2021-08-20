@@ -269,6 +269,8 @@ if(!$nuxt.$store.state.hasLogin){
 	return false
 }
 ```
+### 修改路由为user/id模式
+> 在`uesr`目录下新建一个`_id.vue`文件，然后在`_id.vue`中用`params`接收参数
 ### 修改项目主色调
 - 修改`web\assets\css\main.scss`的`$font-color-main`
 - 修改`web\nuxt.config.js`的`loading`的`color`
