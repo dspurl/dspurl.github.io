@@ -31,3 +31,16 @@ return resReturn(0, '请设置产品规格', Code::CODE_PARAMETER_WRONG);
 # 返回异常错误数据
 throw new \Exception('微信支付失败，请稍后再试！',Code::CODE_PARAMETER_WRONG);
 ```
+### 获取用户ID（用户信息）
+```php
+// 前提是该路由引入用户登录验证中间件
+$user_id = auth('web')->user()->id; // 用户ID
+```
+
+### 在没有登录验证的方法中获取登录的用户信息
+```php
+use Illuminate\Support\Facades\Auth;
+if(Auth::check()){  // 验证是否走登录验证中间件
+    $user_id = auth('web')->user()->id; // 用户ID
+}
+```

@@ -168,8 +168,8 @@ npm install
 cd ../client/nuxt-web/mi
 cp .env.prod .env   //修改配置信息
 APP_ENV=local   // 修改APP_ENV为local
-yarn install
-yarn run dev
+npm install
+npm run dev
 ```
 ## 傻瓜式安装（从2.1.0开始不再支持）
 >
@@ -293,7 +293,7 @@ npm install
 cd ../client/nuxt-web/mi
 cp .env.prod .env   //修改配置信息
 APP_ENV=local   // 修改APP_ENV为local
-yarn install
-yarn run dev
+npm install
+npm run dev
 ```
 

@@ -151,7 +151,12 @@ created() {
 		</view>
 	</view>
 </template>
-
+<style lang='scss'>
+  .avatar-uploader .el-upload{
+    width: 250px;
+    height: 250px;
+  }
+</style>
 <script>
     export { parseTime } from '@/utils'
 	export default{
@@ -165,6 +170,72 @@ created() {
 			this.time = parseTime(this.timestamp, 'yyyy-mm-dd');
 		}
 	}
+</script>
+```
+### 多图/文件上传控件
+#### 参数说明
+参数 | 类型 | 是否必填 | 默认值 | 说明|
+---|---|---|---|---|
+imgData | Object | 否 | `{ type: 1, size: 1024 * 1024 * 2, specification: [80, 150] }`| 后台上传参数 [上传参数说明](/dsshop/guide/vue-instrument.html#上传参数说明 "上传参数说明")|
+format | Array | 否 | `[ 'image/jpeg', 'image/gif', 'image/png', 'image/bmp' ]` | 允许上传的格式，此处为前端验证格式，非后台验证格式 |
+limit |Number|否|5|允许上传文件的数量|
+fileList |Array|否|`[]`|已上传的图片|
+
+#### 示例
+```vue
+<template>
+	<insert-image :fileList="fileList" @getFile="getFile"/>
+</template>
+<script>
+import InsertImage from '@/components/Upload/InsertImage'
+export default {
+  components: {
+    InsertImage
+  },
+  data() {
+    return {
+      fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
+	}
+  },
+  methods: {
+    getFile(res){
+      	console.log('res', res)
+    }
+  }
+}
+</script>
+```
+### 单图/文件上传控件
+#### 参数说明
+参数 | 类型 | 是否必填 | 默认值 | 说明|
+---|---|---|---|---|
+imgData | Object | 否 | `{ type: 1, size: 1024 * 1024 * 2, specification: [80, 150] }`| 后台上传参数 [上传参数说明](/dsshop/guide/vue-instrument.html#上传参数说明 "上传参数说明")|
+format | Array | 否 | `[ 'image/jpeg', 'image/gif', 'image/png', 'image/bmp' ]` | 允许上传的格式，此处为前端验证格式，非后台验证格式 |
+file |String|是|`''`|已上传的图片，没有传空，不然上传的图片将无法展示|
+
+#### 示例
+```vue
+<template>
+	<avatar-image :file="file" @getFile="getFile"/>
+</template>
+<script>
+import AvatarImage from '@/components/Upload/AvatarImage'
+export default {
+  components: {
+    AvatarImage
+  },
+  data() {
+    return {
+      file: '',
+	}
+  },
+  methods: {
+    getFile(res){
+		this.file = res.response
+      	console.log('res', res)
+    }
+  }
+}
 </script>
 ```
 ### 配置文件
@@ -198,6 +269,8 @@ if(!$nuxt.$store.state.hasLogin){
 	return false
 }
 ```
+### 修改路由为user/id模式
+> 在`uesr`目录下新建一个`_id.vue`文件，然后在`_id.vue`中用`params`接收参数
 ### 修改项目主色调
 - 修改`web\assets\css\main.scss`的`$font-color-main`
 - 修改`web\nuxt.config.js`的`loading`的`color`
