@@ -34,12 +34,18 @@ php artisan storage:link
 php artisan key:generate
 # 生成oauth文件
 php artisan passport:keys
-# 创建密码授权客户端
+# 创建密码授权管理端
 php artisan passport:client --password
 # 选择`admins`
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
+# 创建密码授权客户端
+php artisan passport:client --password
+# 选择`users`
+#修改.env，添加OAuth认证信息
+PASSPORT_WEB_ID="生成的Client ID"
+PASSPORT_WEB_SECRET="生成的 Client secret"
 ```
 ## 基于宝塔安装
 - [btdsshop](https://github.com/AckerPaul/btdsshop)
@@ -106,12 +112,18 @@ php artisan storage:link
 php artisan key:generate
 # 生成oauth文件
 php artisan passport:keys
-# 创建密码授权客户端
+# 创建密码授权管理端
 php artisan passport:client --password
 # 选择`admins`
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
+# 创建密码授权客户端
+php artisan passport:client --password
+# 选择`users`
+#修改.env，添加OAuth认证信息
+PASSPORT_WEB_ID="生成的Client ID"
+PASSPORT_WEB_SECRET="生成的 Client secret"
 ```
 修改windows的hosts文件
 ```shell
@@ -249,12 +261,18 @@ php artisan storage:link
 php artisan key:generate
 # 生成oauth文件
 php artisan passport:keys
-# 创建密码授权客户端
+# 创建密码授权管理端
 php artisan passport:client --password
 # 选择`admins`
 #修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
+# 创建密码授权客户端
+php artisan passport:client --password
+# 选择`users`
+#修改.env，添加OAuth认证信息
+PASSPORT_WEB_ID="生成的Client ID"
+PASSPORT_WEB_SECRET="生成的 Client secret"
 # 需要安装PhpRedis
 # 参考：https://github.com/dspurl/dsshop/pull/84
 ```

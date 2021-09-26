@@ -61,3 +61,8 @@ docker-compose down
 docker-compose build workspace
 docker-compose up -d redis nginx mysql
 ```
+### 网站、后台记住密码一般是保存几天，如何设置
+- 默认为7天，可通过env配置`REFRESH_PASSPORT_EXPIRES_IN`
+
+### 网站、后台记住密码，关闭浏览器后并没有生效
+- 请查看浏览器是否关闭浏览器清除cookie功能，设置->隐私设置和安全设置->Cookie及其它网络安全设置
