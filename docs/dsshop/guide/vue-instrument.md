@@ -137,6 +137,8 @@ created() {
 </script>
 ```
 ## PC端（nuxt）
+> asyncData不能验证用户登录状态
+
 ### 时间格式
 #### `timestamp | moment('YYYY-MM-DD HH:mm:ss')`
 - 时间格式:YYYY.MM.DD HH:mm:ss，年为"YYYY"，月为"MM"，日为"DD"，时为"HH"，分为"mm"，秒为"ss"，格式可以自由搭配
@@ -271,6 +273,7 @@ if(!$nuxt.$store.state.hasLogin){
 ```
 ### 修改路由为user/id模式
 > 在`uesr`目录下新建一个`_id.vue`文件，然后在`_id.vue`中用`params`接收参数
+
 ### 修改项目主色调
 - 修改`web\assets\css\main.scss`的`$font-color-main`
 - 修改`web\nuxt.config.js`的`loading`的`color`
