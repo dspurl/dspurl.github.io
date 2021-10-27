@@ -44,3 +44,7 @@ if(Auth::check()){  // 验证是否走登录验证中间件
     $user_id = auth('web')->user()->id; // 用户ID
 }
 ```
+### 验证某个插件是否已安装
+```php
+(new Plugin())->has('coupon')
+```
