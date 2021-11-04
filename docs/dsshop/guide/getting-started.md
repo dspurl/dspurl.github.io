@@ -11,12 +11,24 @@
 - [Google Chrome](https://www.google.cn/chrome/ "Google Chrome")
 
 ## 环境搭建
-如果你的电脑支持安装docker的话，推荐第二种安装方法
 ## 基于docker安装(推荐)
 > 以下安装的前提是已安装好了docker
 > 如本地已有laradock环境或是其它docker环境，请自行修改docker-compose.yml的端口号
 ### 进入dsshop项目根目录
 ```shell
+#安装git
+yum install -y git
+# 查看git是否安装成功 git --version
+# 安装docker-compose，请使用版本1
+sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose -v
+cd ../
+# 创建应用目录
+mkdir www
+cd www
+git clone https://gitee.com/dswjcms/dsshop.git
+cd dsshop
 #安装环境
 docker-compose up -d
 #安装后端
