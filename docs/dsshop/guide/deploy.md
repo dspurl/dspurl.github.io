@@ -9,7 +9,7 @@
 #安装git
 yum install -y git
 # 查看git是否安装成功 git --version
-# 安装docker-compose，请使用版本1
+# 安装docker-compose（请不要用docker compose2及以上版本）
 sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose -v
@@ -29,6 +29,8 @@ docker-compose up -d
 # 资源迁移到服务器
 docker-compose exec php bash
 php artisan resource:migration http://dsshop.test
+# 给storage775权限
+chmod -R 775 storage/
 # 访问IP、IP/admin、IP/h5，如果都能正常访问，API、后台、H5就搭建完成了
 # 搭建网站
 docker-compose exec web bash
@@ -62,6 +64,15 @@ pm2 start dsshop.config.js
 pm2 save
 pm2 startup
 ```
+### 多应用部署
+```shell
+# 项目根据单应用部署处理，在安装docker-compose的时候按照多应用部署处理即可
+# 将项目根目录下的dsdocker上传到服务器根目录下
+cd dsdocker
+docker-compose up -d
+# 需要注意的是，多应用部署后php和web容器对应的是www根目录，所以需要进入到项目下再去执行
+```
+
 ## RSET API部署(laravel)
 - 参考 [Laravel部署](https://learnku.com/docs/laravel/7.x/deployment/7452 "Laravel部署")
 ```shell
