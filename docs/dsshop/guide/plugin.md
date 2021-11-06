@@ -127,6 +127,7 @@ class ShipmentNotificationObserver
 │   │   │   └── uni-app   //app
 │   │   ├── dsshop.json //插件配置
 │   │   ├── routes.json //路由配置
+│   │   ├── diff.json //冲突记录
 ├── template    //插件生成文件所需的模板
 └── dsshop.json    //本地插件配置
 
@@ -209,6 +210,7 @@ pages //插件对应的模板
   "wechatChannel": "",  //微信公众号模板消息 api/app/Channels/WechatChannel.php
   "routeLangAdmin":"",   //路由语言包，用于插件获取后台路由所用 api/resources/lang/zn/route.php
   "routeLangClient":"",   //路由语言包，用于插件获取app路由所用 api/resources/lang/zn/route.php
+  "relyOn":[],   //依赖的插件
   "relevance":[],   //关联的文件
   "clientTemplate":[],   //关联的客户端模板列表
   "adminTemplate":[],   //关联的后台模板列表

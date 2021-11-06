@@ -136,6 +136,21 @@ created() {
 	}
 </script>
 ```
+### 获取字符中url的参数
+``` vue
+<script>
+	import { urlToObj } from 'utils'
+	export default{
+		onLoad(options) {
+			const q = decodeURIComponent(options.q)
+			const url = urlToObj(q)
+		}
+	}
+</script>
+```
+
+#### `hasLogin`
+
 ## PC端（nuxt）
 > asyncData不能验证用户登录状态
 

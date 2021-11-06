@@ -23,7 +23,7 @@ return resReturn(0, '参数错误', Code::CODE_PARAMETER_WRONG);
 ```
 ### 返回json数据
 #### `resReturn`
-```
+```php
 # 返回正确数据
 return resReturn(1, '更新成功');
 # 返回错误数据
@@ -43,4 +43,21 @@ use Illuminate\Support\Facades\Auth;
 if(Auth::check()){  // 验证是否走登录验证中间件
     $user_id = auth('web')->user()->id; // 用户ID
 }
+```
+### 验证某个插件是否已安装
+```php
+(new Plugin())->has('coupon')
+```
+### 导入数据表
+> 注意sql格式，只能存在数据，不能存在结构
+> 格式:php artisan generate:sql [数据表名]
+> 将sql放到storage\app下
+
+```shell
+# 默认安装demo
+php artisan generate:sql
+# 纯净数据
+php artisan generate:sql pure
+# 自定义安装
+php artisan generate:sql dsshop
 ```

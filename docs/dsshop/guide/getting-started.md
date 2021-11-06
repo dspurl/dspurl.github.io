@@ -11,24 +11,36 @@
 - [Google Chrome](https://www.google.cn/chrome/ "Google Chrome")
 
 ## 环境搭建
-如果你的电脑支持安装docker的话，推荐第二种安装方法
 ## 基于docker安装(推荐)
 > 以下安装的前提是已安装好了docker
 > 如本地已有laradock环境或是其它docker环境，请自行修改docker-compose.yml的端口号
 ### 进入dsshop项目根目录
 ```shell
-#安装环境
+#安装git
+yum install -y git
+# 查看git是否安装成功 git --version
+# 安装docker compose（请不要用docker compose2及以上版本）
+sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose -v
+cd ../
+# 创建应用目录
+mkdir www
+cd www
+git clone https://gitee.com/dswjcms/dsshop.git
+cd dsshop
+# 安装环境
 docker-compose up -d
-#安装后端
+# 安装后端
 docker-compose exec php bash
 composer install
 cp .env.docker .env
-#如有修改过docker-compose.yml，如数据库密码，请自行修改.env文件
+# 如有修改过docker-compose.yml，如数据库密码，请自行修改.env文件
 php artisan migrate
 # 加载demo数据(demo和pure二选一)
-php artisan generate:demo
+php artisan generate:sql
 # 加载纯净数据
-# php artisan generate:pure
+# php artisan generate:sql pure
 php artisan storage:link
 # 生成APP_KEY
 php artisan key:generate
@@ -37,15 +49,17 @@ php artisan passport:keys
 # 创建密码授权管理端
 php artisan passport:client --password
 # 选择`admins`
-#修改.env，添加OAuth认证信息
+# 修改.env，添加OAuth认证信息
 PASSPORT_CLIENT_ID="生成的Client ID"
 PASSPORT_CLIENT_SECRET="生成的 Client secret"
 # 创建密码授权客户端
 php artisan passport:client --password
 # 选择`users`
-#修改.env，添加OAuth认证信息
+# 修改.env，添加OAuth认证信息
 PASSPORT_WEB_ID="生成的Client ID"
 PASSPORT_WEB_SECRET="生成的 Client secret"
+# 给storage775权限
+chmod -R 775 storage/
 ```
 ## 基于宝塔安装
 - [btdsshop](https://github.com/AckerPaul/btdsshop)
@@ -104,9 +118,9 @@ REDIS_CACHE_DB=1
 
 php artisan migrate
 # 加载demo数据(demo和pure二选一)
-php artisan generate:demo
+php artisan generate:sql
 # 加载纯净数据
-# php artisan generate:pure
+# php artisan generate:sql pure
 php artisan storage:link
 # 生成APP_KEY
 php artisan key:generate
@@ -253,9 +267,9 @@ REDIS_CACHE_DB=1
 
 php artisan migrate
 # 加载demo数据(demo和pure二选一)
-php artisan generate:demo
+php artisan generate:sql
 # 加载纯净数据
-# php artisan generate:pure
+# php artisan generate:sql pure
 php artisan storage:link
 # 生成APP_KEY
 php artisan key:generate
