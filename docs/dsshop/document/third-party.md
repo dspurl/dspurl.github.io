@@ -22,3 +22,4 @@ xx.com/docs
 - [vue-element-admin V3.*](https://github.com/PanJiaChen/vue-element-admin/blob/tag/3.11.0/README.zh-CN.md "vue-element-admin")
 - [element](https://element.eleme.cn/ "element")
 - [pwa官方手册](https://developer.mozilla.org/zh-CN/docs/Web/Manifest#manifest_%E8%8C%83%E4%BE%8B "pwa官方手册")
+- [vue-quill-editor](https://github.surmon.me/vue-quill-editor/ "vue-quill-editor")

@@ -29,8 +29,8 @@ docker-compose up -d
 # 资源迁移到服务器
 docker-compose exec php bash
 php artisan resource:migration http://dsshop.test
-# 给storage775权限
-chmod -R 775 storage/
+# 给storage777权限
+chmod -R 777 storage/
 # 访问IP、IP/admin、IP/h5，如果都能正常访问，API、后台、H5就搭建完成了
 # 搭建网站
 docker-compose exec web bash
@@ -38,7 +38,7 @@ npm start
 # 复制对应地址，如http://172.18.0.3:3005
 # ctrl+c退出
 # 打开./docker/nginx/conf.d/default.conf找到如下代码，把地址换成自己的
-location ~ ^/(api|storage|h5|admin|oauth|\.apk|\.txt) {
+location ~ ^/(api|storage|h5|admin|oauth) {
         try_files $uri $uri/ /index.php$is_args$args;
 }
 location / {
@@ -63,6 +63,15 @@ pm2 start dsshop.config.js
 # 开机自动启动
 pm2 save
 pm2 startup
+# 开启队列和定时任务
+# 修改/docker/supervisor/conf.d目录下的dsshop-scheduler.conf.example(定时任务)和dsshop-worker.conf.example(队列)
+# 一般不需要修改，直接将这两个文件名的.example去除
+# 进入php容器
+docker-compose exec php bash
+# 更新supervisor
+supervisorctl update
+#查看所有进程的状态
+supervisorctl status
 ```
 ### 多应用部署
 ```shell
@@ -93,6 +102,22 @@ php artisan resource:migration
 # 可自定义域名
 php artisan resource:migration http://dsshop.text
 ```
+### 队列
+- 可不开启，开启需要修改代码
+``` shell
+# 终端运行
+php artisan queue:work
+# 开启邮件相关的队列功能
+## 邮件
+### 普通邮件发送
+Mail::to($request->email)->send(new VerificationCode($code));
+### 支持队列的邮件发送
+Mail::to($request->email)->queue(new VerificationCode($code));
+## 通知相关
+### api\app\Notifications\InvoicePaid.php
+### 把注释掉的代码恢复，并屏蔽class InvoicePaid extends Notification
+```
+
 ### 定时任务
 - 定时任务涉及linux(这里拿宝塔为例)和laravel
 - 进入宝塔-计划任务-添加计划任务，按下图配置
@@ -101,6 +126,21 @@ php artisan resource:migration http://dsshop.text
 /www/server/php/72/bin/php /www/wwwroot/项目目录/artisan schedule:run >> /dev/null 2>&1
 ```
 - 然后就不用去管了，以后有什么定时任务，直接在 `api/app/Console/Kernel.php`添加即可，更多参考: [任务调度](https://learnku.com/docs/laravel/7.x/scheduling/7492 "任务调度")
+
+### 使用supervisor进程守护监控
+- 使用supervisor进程守护监控来管理你的队列和定时任务
+- 这里基于docker单应用部署搭建的环境来讲，默认已经安装好和自启动了supervisor，其它环境请自行处理
+```shell
+# 修改/docker/supervisor/conf.d目录下的dsshop-scheduler.conf.example(定时任务)和dsshop-worker.conf.example(队列)
+# 一般不需要修改，直接将这两个文件名的.example去除
+# 进入php容器
+docker-compose exec php bash
+# 更新supervisor
+supervisorctl update
+#查看所有进程的状态
+supervisorctl status
+#日志路径：/var/log/supervisor/supervisord.log
+```
 
 ## 后台搭建
 - 进入admin目录，执行以下代码
