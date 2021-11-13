@@ -14,19 +14,8 @@
 ## 基于docker安装(推荐)
 > 以下安装的前提是已安装好了docker
 > 如本地已有laradock环境或是其它docker环境，请自行修改docker-compose.yml的端口号
-### 进入dsshop项目根目录
+### 进入项目根目录
 ```shell
-#安装git
-yum install -y git
-# 查看git是否安装成功 git --version
-# 安装docker compose（请不要用docker compose2及以上版本）
-sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose -v
-cd ../
-# 创建应用目录
-mkdir www
-cd www
 git clone https://gitee.com/dswjcms/dsshop.git
 cd dsshop
 # 安装环境
@@ -58,8 +47,19 @@ php artisan passport:client --password
 # 修改.env，添加OAuth认证信息
 PASSPORT_WEB_ID="生成的Client ID"
 PASSPORT_WEB_SECRET="生成的 Client secret"
-# 给storage775权限
-chmod -R 775 storage/
+# 给storage777权限
+chmod -R 777 storage/
+
+# 开启队列和定时任务(用到了再开启，以下非必须操作)
+# 修改/docker/supervisor/conf.d目录下的dsshop-scheduler.conf.example(定时任务)和dsshop-worker.conf.example(队列)
+# 一般不需要修改，直接将这两个文件名的.example去除
+# 进入php容器
+docker-compose exec php bash
+# 更新supervisor
+supervisorctl update
+#查看所有进程的状态
+supervisorctl status
+
 ```
 ## 基于宝塔安装
 - [btdsshop](https://github.com/AckerPaul/btdsshop)

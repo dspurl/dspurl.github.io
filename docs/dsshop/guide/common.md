@@ -59,7 +59,7 @@ $user->notify(new InvoicePaid($invoice));
 |admin|Boole||否|是否为后台通知，true：是，为空：否|
 |user_id|string||否|用户ID，如admin为true时，不用传|
 |parameter|array||否|不需要传|
-|template|string||是|通知模板标识，见下表|
+|template|string||否|通知模板标识，目前只有微信公众号才需要，见下表|
 |prefers|array|['database']|否|通知途径：默认为站内信|
 
 ### list 的合法值
@@ -97,6 +97,7 @@ WECHAT_SUBSCRIPTION_INFORMATION_ADMIN_ORDER_COMPLETION=
 | ------------ | ------------ |
 |database|站内信，默认|
 |sms|短信|
+|mail|邮箱|
 |miniweixin|微信小程序订阅消息|
 |wechat|微信公众号模板消息|
 
