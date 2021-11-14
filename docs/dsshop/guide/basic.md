@@ -50,6 +50,7 @@ AUTOMATIC_RECEIVING_STATE=true   #是否开启自动收货
 AUTOMATIC_RECEIVING=7   #多少天后自动收货
 AUTOMATIC_EVALUATE_STATE=true   #是否开启自动评价功能
 AUTOMATIC_EVALUATE=12   #多少天后自动好评
+MAX_FILE_UPLOAD_SIZE = 2097152  #文件最大上传大小2M
 ```
 ### 后台配置相关
 - 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`
