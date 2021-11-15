@@ -32,6 +32,14 @@ php artisan resource:migration http://dsshop.test
 # 给storage777权限
 chmod -R 777 storage/
 # 访问IP、IP/admin、IP/h5，如果都能正常访问，API、后台、H5就搭建完成了
+# 开启路由缓存
+php artisan route:cache
+# 清除缓存
+#php artisan route:clear
+# 开启配置缓存
+php artisan config:cache
+# 消除缓存
+php artisan config:clear
 # 搭建网站
 docker-compose exec web bash
 npm start
