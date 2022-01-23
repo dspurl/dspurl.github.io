@@ -1,6 +1,6 @@
 module.exports = {
   plugins: ['@vuepress/medium-zoom'],
-  title: 'DSWJCMS',
+  title: 'DSSHOP',
   description: '从零开始，让你走入DSSHOP的世界！',
   head: [
     ['link', { rel: 'icon', href: '/dsshop_logo.ico' }]

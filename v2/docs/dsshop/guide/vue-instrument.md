@@ -268,8 +268,7 @@ API_URL_BROWSER=http://dsshop.test/api/v1/app/	//项目访问地址，暂时没�
 API_URL=http://dsshop.test/api/v1/app/	//项目api地址
 PROJECT_KEY=base64:szoJ3mSx/5U7zOsJfU7s4pSahiwdh01x6badmz5FtCM=	//前端密钥
 CACHE_PR=DSSHOP-PC-	//项目缓存前缀
-IBS_URL=https://restapi.amap.com/v3	//地图地址
-IBS_KEY=	//地图密钥
+IBS_KEY=	//腾讯地图地图密钥，可通过https://lbs.qq.com注册创建应用
 ```
 ### $nuxt
 > nuxt使用`store`或`route`推荐使用$nuxt
