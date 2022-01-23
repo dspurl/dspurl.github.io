@@ -1,5 +1,5 @@
 # 介绍
-[![vue](https://img.shields.io/badge/vue-2.6.10-brightgreen.svg "vue")](https://github.com/vuejs/vue "vue") [![laravel](https://img.shields.io/badge/laravel-7.30.4-brightgreen.svg "laravel")](https://github.com/laravel/laravel "laravel") ![Github stars](https://img.shields.io/github/stars/dspurl/dsshop.svg)
+[![vue](https://img.shields.io/badge/vue-2.6.10-brightgreen.svg "vue")](https://github.com/vuejs/vue "vue") [![laravel](https://img.shields.io/badge/laravel-7.30.6-brightgreen.svg "laravel")](https://github.com/laravel/laravel "laravel") ![Github stars](https://img.shields.io/github/stars/dspurl/dsshop.svg)
 
 DSSHOP是一套多终端商城解决方案，它采用前后端分离，后端基于laravel,前端基于Vue。
 
