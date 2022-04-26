@@ -218,15 +218,15 @@ APP_ENV=local   // 修改APP_ENV为local
 npm install
 npm run dev
 ```
-## 傻瓜式安装（从2.1.0开始不再支持）
+## 傻瓜式安装
 >
-> 5步快速搭建属于自己的DSSHOP商城，功能参考项目演示，适用线上直接部署
+> 4分钟搭建dsshop
 > 
 > 如不想碰到错误，请严格按照以下步骤和要求执行，以下方法已真机验证
 > 
 > 安装包在环境满足的前提下，可不用写一行代码，即可搭建完整个项目
 > 
-> 优点：搭建方便，无需懂代码，全程引导安装；缺点：项目压缩编译，二开不友好（可通过下载install得到二开支持）
+> 优点：搭建方便，无需懂代码，全程引导安装；缺点：项目压缩编译
 
 #### 前期准备
 - 一台linux服务器(laradock最佳，非laradock请在安装时的`mysql`和`redis`服务器填写`127.0.0.1`)
@@ -241,21 +241,19 @@ npm run dev
 ![](/image/install_10.png)
 2. 将项目解压，得到dsshop目录，将dsshop目录下的api目录下所有文件移动到网站根目录（一般为www）
 3. 通过浏览器访问http://dsshop.test/install（请根据自己实际域名替换掉http://dsshop.test）
-4. 根据以下5步完成项目安装
-> 如果需要使用微信小程序，请在项目配置页中开启小程序配置，并将小程序配置信息填入（请确保配置信息的正确性，也可以安装后，通过`.env`文件修改），不然第7步将无法正常使用小程序
-> 
-> 配置信息只有在首次项目安装时，可通过表单形式填写，安装完后，请通过根目录下的`.env`文件进行修改，`.env`参数说明，请参考[配置文件](basic.html "配置文件")
-![](/image/install_01.png)
-![](/image/install_02.png)
-![](/image/install_03.png)
-![](/image/install_04.png)
-![](/image/install_05.png)
-5. 访问h5和后台，看是否正常访问，如果可以，恭喜你安装成功了
-6. 最后将根目录下的install目录移除，记住一定要移除掉！！！
-7. 小程序的使用：当安装成功后，请将根目录的mp-weixin目录下载到本地，通过“微信开放者工具”导入该目录
-![](/image/install_06.png)
-![](/image/install_07.png)
-![](/image/install_08.png)
+4. 安装
+```
+git clone https://gitee.com/dswjcms/dsshop.git
+cd dsshop
+# 配置伪静态(这里不做介绍，参考laravel)，最终能通过访问dsshop.test(这里必须可以通过dsshop.test访问，不然无法安装)访问到dsshop/public目录
+# 运行安装引导
+访问：http://dsshop.test/install
+# 填写必要信息后，即可完成安装，安装只包括后台、h5、小程序
+# 小程序可以直接用小程序开发工具打开dsshop/api/public/mp-weixin,打包好后的小程序无法使用地址配置的选择地址功能
+# 网站需要进入dsshop/api/public/web并执行
+npm install
+npm start
+```
 ## 基于Homestead安装
 参考：[Laravel Homestead](https://learnku.com/docs/laravel/7.x/homestead/7450 "Laravel Homestead")
 ### DSSHOP使用
