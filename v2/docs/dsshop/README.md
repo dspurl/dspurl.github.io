@@ -7,7 +7,7 @@ actionText: 快速上手 →
 actionLink: /dsshop/guide/
 features:
 - title: 优雅
-  details: API基于Larave，它是优雅的 PHP Web 开发框架。具有高效、简洁、富于表达力等优点。
+  details: API基于Laravel，它是优雅的 PHP Web 开发框架。具有高效、简洁、富于表达力等优点。
 - title: 最佳实践
   details: 合理的框架选择，良好的工程实践助你持续产出高质量代码。
 - title: 跨平台
