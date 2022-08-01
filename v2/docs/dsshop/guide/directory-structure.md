@@ -64,6 +64,13 @@ sidebarDepth: 2
 │   ├── config
 │   ├── database
 │   ├── public
+│   │   ├── admin
+│   │   ├── h5
+│   │   ├── install
+│   │   ├── mp-weixin
+│   │   ├── platform
+│   │   ├── template
+│   │   └── web
 │   ├── resources
 │   ├── routes
 │   ├── storage
@@ -125,6 +132,22 @@ BASE_API: ''    //RSET API地址
 - `Config` config 目录，顾名思义，包含应用程序所有的配置文件。我们鼓励你通读这些文件，以便帮助你熟悉所有可用的选项。
 - `Database` database 目录包含数据填充和迁移文件以及模型工厂类。你还可以把它作为 SQLite 数据库存放目录。
 - `Public` public 目录包含了入口文件 index.php ，它是进入应用程序的所有请求的入口点。此目录还包含了一些你的资源文件（如图片、JavaScript 和 CSS）。
+> public目录下存放着已经打包好的前端项目
+> 
+> admin 后台
+> 
+> h5 h5
+> 
+> install 一键安装程序
+> 
+> mp-weixin 小程序
+> 
+> platform 可视化UI后台
+> 
+> template 可视化UI前台
+> 
+> web 网站
+> 
 - `Resources` resources 目录包含了视图和未编译的资源文件（如 LESS、SASS 或 JavaScript）。此目录还包含你所有的语言文件。
 - `Routes` routes 目录包含了应用的所有路由定义，Laravel 默认包含了几个路由文件：web.php、api.php、 console.php 和 channels.php。
 - `Storage` storage 目录包含编译后的 Blade 模板、session 会话生成的文件、缓存文件以及框架生成的其他文件。这个目录被细分成 app 、 framework 和 logs 三个子目录。app 目录可以用来存储应用生成的任何文件。 framework 目录用来存储框架生成的文件和缓存。最后， logs 目录包含应用的日志文件。
