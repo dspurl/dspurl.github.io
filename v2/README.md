@@ -8,4 +8,5 @@ yarn docs:build
 ```
 ### 项目位置
 - docs/dsshop
-- v2\docs\.vuepress\dist
+### 部署
+将docs\.vuepress\dist目录下所有文件放到根目录下
