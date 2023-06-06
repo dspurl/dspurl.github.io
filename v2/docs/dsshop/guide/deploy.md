@@ -29,6 +29,8 @@ docker-compose up -d
 # 资源迁移到服务器
 docker-compose exec php bash
 php artisan resource:migration http://dsshop.test
+# php artisan generate:sql pure
+php artisan storage:link
 # 给storage777权限
 chmod -R 777 storage/
 # 访问IP、IP/admin、IP/h5，如果都能正常访问，API、后台、H5就搭建完成了
@@ -173,7 +175,7 @@ assetsPublicPath: '/h5/',
 ```shell
 # 打包
 yarn run build
-#将.nuxt nuxt.config.js package.json package-lock.json上传到服务器
+#将.nuxt nuxt.config.js package.json package-lock.json config上传到服务器
 #在服务器端项目根目录安装包
 yarn install
 # 测试是否能正常运行，将记录运行后的IP地址

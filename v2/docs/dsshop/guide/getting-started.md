@@ -11,8 +11,11 @@
 - [Google Chrome](https://www.google.cn/chrome/ "Google Chrome")
 
 ## 环境搭建
-## 基于docker安装(推荐)
+## 基于docker安装
+> 推荐有技术能力的使用该方法
+> 
 > 以下安装的前提是已安装好了docker
+> 
 > 如本地已有laradock环境或是其它docker环境，请自行修改docker-compose.yml的端口号
 ### 进入项目根目录
 ```shell
@@ -82,9 +85,62 @@ npm install
 # `secret`有个默认密钥，如需自定义，只需在`.env`中配置`PROJECT_KEY`
 # HBuilder X可以通过浏览器、微信小程序运行项目，也可以直接发布项目，但需要配置账号，具体请参考HBuilder X
 ```
-## 基于宝塔安装
+## 傻瓜式安装
+>
+> 4分钟搭建dsshop
+> 
+> 如不想碰到错误，请严格按照以下步骤和要求执行，以下方法已真机验证
+> 
+> 安装包在环境满足的前提下，可不用写一行代码，即可搭建完整个项目
+> 
+> 优点：搭建方便，无需懂代码，全程引导安装；缺点：项目压缩编译
+>
+> 缺点：环境不满足将无法正常执行，所以请严格参考以下测试环境执行，以免发生错误
+
+#### 前期准备
+- 一台服务器
+- mysql =5.7
+- php >= 7.4
+- node= 14.18.3
+- php开启以下扩展`curl`、`pdo`、`openssl`、`redis`
+- 以下目录具备读写权限(777权限)`api/storage/framework/`、`api/storage/logs/`、`api/bootstrap/cache/`
+
+#### 安装步骤
+##### 手动下载安装
+1. 下载dsshop发行版，下载方式如下图
+![](/image/install_09.png)
+![](/image/install_10.png)
+2. 将项目解压，得到dsshop目录，将dsshop目录移动到网站根目录（一般为www）
+3. 配置nginx（自行百度自己用的集成环境如何修改nginx）参考：https://learnku.com/docs/laravel/7.x/deployment/7452
+4. 通过浏览器访问http://dsshop.test/install（请根据自己实际域名替换掉http://dsshop.test）
+5. 填写必要信息后，即可完成安装
+##### 命令行安装
+```
+git clone https://github.com/dspurl/dsshop
+cd dsshop
+# 配置nginx参考手动下载安装
+# 运行安装引导
+访问：http://dsshop.test/install
+# 填写必要信息后，即可完成安装
+```
+##### 搭建小程序
+> 小程序可以直接用小程序开发工具打开dsshop/api/public/mp-weixin
+- 用微信开发者工具打开小程序，然后上传，进行发布就可以了
+##### 搭建网站
+> 网站位于dsshop/api/public/web
+- 进入网站目录，执行以下命令
+
+```
+npm install
+npm start
+# 访问网站
+http://dsshop.test:3002
+```
+
+
+## 基于宝塔安装(已暂停维护)
 - [btdsshop](https://github.com/AckerPaul/btdsshop)
-## 基于Laradock安装
+## 基于Laradock安装(已暂停维护)
 ### [安装Laradock](https://laradock.io/getting-started/)
 window 安装docker.exe
 
@@ -218,43 +274,7 @@ APP_ENV=local   // 修改APP_ENV为local
 npm install
 npm run dev
 ```
-## 傻瓜式安装
->
-> 4分钟搭建dsshop
-> 
-> 如不想碰到错误，请严格按照以下步骤和要求执行，以下方法已真机验证
-> 
-> 安装包在环境满足的前提下，可不用写一行代码，即可搭建完整个项目
-> 
-> 优点：搭建方便，无需懂代码，全程引导安装；缺点：项目压缩编译
-
-#### 前期准备
-- 一台linux服务器(laradock最佳，非laradock请在安装时的`mysql`和`redis`服务器填写`127.0.0.1`)
-- php >= 7.4
-- mysql >=5.7
-- php开启以下扩展`curl`、`pdo`、`openssl`、`redis`
-- 以下目录具备读写权限(777权限)`storage/framework/`、`storage/logs/`、`bootstrap/cache/`
-
-#### 安装步骤
-1. 下载dsshop发行版，下载方式如下图，也可以下载guide分支的代码
-![](/image/install_09.png)
-![](/image/install_10.png)
-2. 将项目解压，得到dsshop目录，将dsshop目录下的api目录下所有文件移动到网站根目录（一般为www）
-3. 通过浏览器访问http://dsshop.test/install（请根据自己实际域名替换掉http://dsshop.test）
-4. 安装
-```
-git clone https://gitee.com/dswjcms/dsshop.git
-cd dsshop
-# 配置伪静态(这里不做介绍，参考laravel)，最终能通过访问dsshop.test(这里必须可以通过dsshop.test访问，不然无法安装)访问到dsshop/public目录
-# 运行安装引导
-访问：http://dsshop.test/install
-# 填写必要信息后，即可完成安装，安装只包括后台、h5、小程序
-# 小程序可以直接用小程序开发工具打开dsshop/api/public/mp-weixin,打包好后的小程序无法使用地址配置的选择地址功能
-# 网站需要进入dsshop/api/public/web并执行
-npm install
-npm start
-```
-## 基于Homestead安装
+## 基于Homestead安装(已暂停维护)
 参考：[Laravel Homestead](https://learnku.com/docs/laravel/7.x/homestead/7450 "Laravel Homestead")
 ### DSSHOP使用
 - 下载[dsshop](https://github.com/dspurl/dsshop "dsshop")

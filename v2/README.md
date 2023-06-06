@@ -8,3 +8,4 @@ yarn docs:build
 ```
 ### 项目位置
 - docs/dsshop
+- v2\docs\.vuepress\dist

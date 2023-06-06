@@ -1,10 +1,9 @@
 ## DSSHOP接口文档
-> dsshop2.2.1开始支持接口文档自动生成，2.X需要自行安装`mpociot/laravel-apidoc-generato`扩展包
-> 可能在生成接口文档时会报xx.js已存在的错误信息，将`public/docs`和`resources/docs`目录删除即可
+> 基于`knuckleswtf/scribe`扩展包
 ```php
 #生成接口文档
-php artisan apidoc:generate
-#访问接口文档
+php artisan scribe:generate
+#访问接口文档，默认已自带接口文档
 xx.com/docs
 ```
 ## 第三方文档

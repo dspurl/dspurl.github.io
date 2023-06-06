@@ -1,8 +1,12 @@
 # 基本配置
-## 配置文件
-### 后端配置相关
-- 后端配置文件在config目录下，但实际配置时，并不需要去修改该目录下的文件，而是直接修改`.env`、`.env.dev`、`.env.prod`
-- 以下是常用的配置参数说明,更多配置参数请查看`api/config`
+## 后台配置
+> 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`
+>
+> 后端配置文件在config目录下，但实际配置时，并不需要去修改该目录下的文件，而是直接修改`.env`、`.env.dev`、`.env.prod`
+>
+> *3.3开始支持后台动态配置，后台动态配置只在正式环境中才生效，生效后配置文件走数据库，不再走文件配置
+>
+> 以下是常用的配置参数说明,更多配置参数请查看`api/config`
 ```markdown
 APP_KEY='' #应用程序密钥执行php artisan key:generate可生成
 APP_DEBUG=true #测试环境开启，正常环境就关闭
@@ -52,9 +56,8 @@ AUTOMATIC_EVALUATE_STATE=true   #是否开启自动评价功能
 AUTOMATIC_EVALUATE=12   #多少天后自动好评
 MAX_FILE_UPLOAD_SIZE = 2097152  #文件最大上传大小2M
 ```
-### 后台配置相关
-- 后台配置只需要修改RSET API地址即可，修改`dev.env.js`、`prod.env.js`的`BASE_API`
-### uni-app配置相关
+
+## uni-app配置相关
 ```markdown
 #client/Dsshop/utils/config.js
 #该文件可以配置生产环境、测试环境和本地环境，都有中文注明，修改NODE_ENV即可在打包时区分生产和测试环境
