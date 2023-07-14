@@ -61,3 +61,11 @@ php artisan generate:sql pure
 # 自定义安装
 php artisan generate:sql dsshop
 ```
+### 导出excel
+> 扩展文档： https://docs.laravel-excel.com/3.1/exports/
+>
+> 以下为DSSHOP定制说明
+```
+# 为每一行设置样式
+
+```
