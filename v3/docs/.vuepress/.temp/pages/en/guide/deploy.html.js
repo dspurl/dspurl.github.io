@@ -1,0 +1,3 @@
+import comp from "D:/www/dspurl.github.io/v3/docs/.vuepress/.temp/pages/en/guide/deploy.html.vue"
+const data = JSON.parse("{\"path\":\"/en/guide/deploy.html\",\"title\":\"Deploy\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"API deployment\",\"slug\":\"api-deployment\",\"link\":\"#api-deployment\",\"children\":[]},{\"level\":2,\"title\":\"Background deployment\",\"slug\":\"background-deployment\",\"link\":\"#background-deployment\",\"children\":[]},{\"level\":2,\"title\":\"uniapp deployment\",\"slug\":\"uniapp-deployment\",\"link\":\"#uniapp-deployment\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"en/guide/deploy.md\"}")
+export { comp, data }

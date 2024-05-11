@@ -1,0 +1,1 @@
+export const siteData = JSON.parse("{\"base\":\"/tfshop/\",\"lang\":\"zh-CN\",\"title\":\"\",\"description\":\"\",\"head\":[],\"locales\":{\"/\":{\"lang\":\"zh-CN\",\"title\":\"TFSHOP\",\"description\":\"轻量级商城系统，跨终端商城解决方案\"},\"/en/\":{\"lang\":\"en-US\",\"title\":\"TFSHOP\",\"description\":\"Lightweight mall system, cross-terminal mall solution\"}}}")

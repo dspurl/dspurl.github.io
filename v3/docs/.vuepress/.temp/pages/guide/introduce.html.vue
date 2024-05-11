@@ -1,0 +1,23 @@
+<template><div><h1 id="介绍" tabindex="-1"><a class="header-anchor" href="#介绍"><span>介绍</span></a></h1>
+<p>TFSHOP是一款轻量级低代码商城系统，意在打造一款易二开易扩展的商城系统。开源版自带插件脚手架，帮助开发者减少70%-90%重复的代码书写量。</p>
+<h2 id="它的优缺点" tabindex="-1"><a class="header-anchor" href="#它的优缺点"><span>它的优缺点？</span></a></h2>
+<h3 id="优点" tabindex="-1"><a class="header-anchor" href="#优点"><span>优点</span></a></h3>
+<blockquote>
+<p>代码简洁优雅</p>
+<p>足够轻量</p>
+<p>极易二次开发</p>
+<p>基于MIT，完全免费开源，无需授权可商用</p>
+<p>支持多语言</p>
+<p>前后端分离，松耦合，易扩展</p>
+</blockquote>
+<h3 id="缺点" tabindex="-1"><a class="header-anchor" href="#缺点"><span>缺点</span></a></h3>
+<blockquote>
+<p>基于第三方包依赖，项目体积较大</p>
+<p>需要掌握较新的技术栈：vue+laravel+ts+uniapp等</p>
+<p>入门难，上手快，深入难</p>
+<p>功能简单，只提供商城基础功能，后续可能会往极简方向发展，不适合简单修改就能上线，需要进行二次开发</p>
+<p>前后端分离，维护不是很方便，前端修改后需要重新打包上传</p>
+</blockquote>
+</div></template>
+
+
