@@ -1,4 +1,13 @@
 # EasyStart
+> environmental requirement
+>
+```
+php >= 7.4
+laravel = 7.22.6
+mysql >= 5.7
+vue = 2.5.17
+node= 14.18.3
+```
 ## API construction
 ### phpstudy
 1. Download the project to the phpstudy project directory, which is assumed to be the www directory on disk d

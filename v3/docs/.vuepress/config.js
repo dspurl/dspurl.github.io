@@ -17,7 +17,8 @@ export default defineUserConfig({
               '/guide/getting-started.md',
               '/guide/configuration.md',
               '/guide/theme.md',
-              '/guide/deploy.md'
+              '/guide/deploy.md',
+              '/guide/function.md'
             ],
           },
           {
@@ -62,7 +63,8 @@ export default defineUserConfig({
               '/en/guide/getting-started.md',
               '/en/guide/configuration.md',
               '/en/guide/theme.md',
-              '/en/guide/deploy.md'
+              '/en/guide/deploy.md',
+              '/en/guide/function.md'
             ],
           },
           {

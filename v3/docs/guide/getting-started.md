@@ -1,4 +1,13 @@
 # 快速上手
+> 环境要求
+>
+```
+php >= 7.4
+laravel = 7.22.6
+mysql >= 5.7
+vue = 2.5.17
+node= 14.18.3
+```
 ## API搭建
 ### phpstudy
 1. 下载项目到phpstudy项目目录，这里假设为d盘下的www目录

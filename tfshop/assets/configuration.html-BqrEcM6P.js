@@ -1,4 +1,4 @@
-import{_ as s,o as n,c as a,a as e}from"./app-BUnIihfp.js";const t={},i=e(`<h1 id="配置" tabindex="-1"><a class="header-anchor" href="#配置"><span>配置</span></a></h1><h2 id="api配置" tabindex="-1"><a class="header-anchor" href="#api配置"><span>api配置</span></a></h2><p>tfshop API的基本配置文件是 <code>.env</code> 一个基础的配置文件是这样的,项目搭建后，可配置的参数后台也可以配置：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>APP_NAME=tfshop
+import{_ as s,o as n,c as a,a as e}from"./app-DGDGLuI8.js";const t={},i=e(`<h1 id="配置" tabindex="-1"><a class="header-anchor" href="#配置"><span>配置</span></a></h1><h2 id="api配置" tabindex="-1"><a class="header-anchor" href="#api配置"><span>api配置</span></a></h2><p>tfshop API的基本配置文件是 <code>.env</code> 一个基础的配置文件是这样的,项目搭建后，可配置的参数后台也可以配置：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>APP_NAME=tfshop
 APP_ENV=local
 APP_KEY=base64:1dBGpFr/ulFhwh1RxwFcLAEVNxAtcObcVoVrLliTY5c=
 APP_DEBUG=true

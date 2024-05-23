@@ -1,5 +1,13 @@
 <template><div><h1 id="easystart" tabindex="-1"><a class="header-anchor" href="#easystart"><span>EasyStart</span></a></h1>
-<h2 id="api-construction" tabindex="-1"><a class="header-anchor" href="#api-construction"><span>API construction</span></a></h2>
+<blockquote>
+<p>environmental requirement</p>
+</blockquote>
+<div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre v-pre class="language-text"><code>php >= 7.4
+laravel = 7.22.6
+mysql >= 5.7
+vue = 2.5.17
+node= 14.18.3
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="api-construction" tabindex="-1"><a class="header-anchor" href="#api-construction"><span>API construction</span></a></h2>
 <h3 id="phpstudy" tabindex="-1"><a class="header-anchor" href="#phpstudy"><span>phpstudy</span></a></h3>
 <ol>
 <li>Download the project to the phpstudy project directory, which is assumed to be the www directory on disk d</li>
