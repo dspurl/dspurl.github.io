@@ -22,6 +22,13 @@ export default defineUserConfig({
             ],
           },
           {
+            text: 'PRO指南',
+            collapsable: false,
+            children: [
+              '/pro-guide/decorate.md',
+            ],
+          },
+          {
             text: '官网',
             link: 'https://www.dswjcms.com'
           },
