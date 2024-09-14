@@ -13,16 +13,19 @@ node= 14.18.3
 1. 下载项目到phpstudy项目目录，这里假设为d盘下的www目录
 2. 解压项目到www目录下 
 3. 打开phpstudy，网站->创建网站，域名将是后面你访问该项目的域名；根目录选择你的项目地址下的api/public目录；勾选同步hosts，php版本选7.4.3
-   
+> 注意：TFSHOP需要开启redis，phpStudy安装的是redis服务端，需要php.ini中开启redis扩展
+> 
 ![图片](/image/20240510105559.png)
-4. 选择伪静态，复制以下代码
+
+![图片](/image/20240510105657.png)
+1. 选择伪静态，复制以下代码
 ```
 location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
 ```
-5. 进入api根目录，修改.env配置信息
-```
+1. 进入api根目录，修改.env配置信息
+```shell
 # 如果根目录下没有.env文件，请复制.env.dev并重命名为.env,以下为数据库连接信息，修改成自己的数据库信息
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -30,8 +33,9 @@ DB_DATABASE=tfshop
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
-6. 执行命令行代码
-```
+1. 进入tfshop\api目录，执行命令行代码
+```shell
+composer install
 php artisan migrate
 # 加载demo数据(demo和pure二选一)
 php artisan generate:sql
@@ -54,11 +58,12 @@ php artisan passport:client --password
 # 修改.env，添加OAuth认证信息
 PASSPORT_WEB_ID="生成的Client ID"
 PASSPORT_WEB_SECRET="生成的 Client secret"
+# 资源迁移到服务器
+php artisan resource:migration http://tfshop.test
 ```
 
-![图片](/image/20240510105657.png)
 ### docker
-```
+```shell
 git clone https://gitee.com/dswjcms/tfshop.git
 cd tfshop
 # 安装环境
@@ -92,6 +97,8 @@ PASSPORT_WEB_ID="生成的Client ID"
 PASSPORT_WEB_SECRET="生成的 Client secret"
 # 给storage777权限
 chmod -R 777 storage/
+# 资源迁移到服务器
+php artisan resource:migration http://tfshop.test
 ```
 ## 后台搭建
 > 以下所说的项目目录即你下载的tfshop所放置的位置
@@ -102,12 +109,13 @@ chmod -R 777 storage/
 2. 修改`admin\vue2\element-admin-v3\config\dev.env.js`配置文件中的API地址，改成上面配置的API域名
 ![图片](/image/20240510111720.png)
 3. 打开命令行，执行以下代码
-```
+```shell
 npm run dev
 ```
+4. 默认账号密码都是：admin
 ## uni-app搭建
 1. 打开HBuilder X
 2. 文件->导入->从本地目录导入
-3. 选择`dsshop\client\uni-app\mix-mall`
+3. 选择`tfshop\client\uni-app\mix-mall`
 4. 修改`utlis/config.js`中相关api地址代码
 ![图片](/image/20240510143752.png)

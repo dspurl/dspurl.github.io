@@ -13,8 +13,10 @@ node= 14.18.3
 1. Download the project to the phpstudy project directory, which is assumed to be the www directory on disk d
 2. Unzip the project to the www directory
 3. Open phpstudy, Website -> Create Website, the domain name will be the domain name after you visit the project; Select the api/public directory under your project address; Select Synchronize hosts and select php version 7.4.3
-   
+> Note: TFSHOP requires redis to be enabled, phpStudy installs the redis server and requires the redis extension to be enabled in php.ini
+> 
 ![图片](/image/20240510105559.png)
+![图片](/image/20240510105657.png)
 4. Select pseudo-static and copy the following code
 ```
 location / {
@@ -22,7 +24,7 @@ location / {
 }
 ```
 5. Go to the api root directory and modify the.env configuration information
-```
+```shell
 # If the.env file does not exist in the root directory, copy the. Env.dev file and rename it as.env
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -31,7 +33,8 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 6. Execute command line code
-```
+```shell
+composer install
 php artisan migrate
 # Execute command line code to load demo data (either demo or pure)
 php artisan generate:sql
@@ -54,11 +57,12 @@ php artisan passport:client --password
 # Modify.env to add OAuth authentication information
 PASSPORT_WEB_ID="The generated Client ID"
 PASSPORT_WEB_SECRET="The generated Client secret"
+# Resources are migrated to the server
+php artisan resource:migration http://tfshop.test
 ```
 
-![图片](/image/20240510105657.png)
 ### docker
-```
+```shell
 git clone https://gitee.com/dswjcms/tfshop.git
 cd tfshop
 # installation environment
@@ -92,6 +96,8 @@ PASSPORT_WEB_ID="The generated Client ID"
 PASSPORT_WEB_SECRET="The generated Client secret"
 # Give permission to storage777
 chmod -R 777 storage/
+# Resources are migrated to the server
+php artisan resource:migration http://tfshop.test
 ```
 ## Background construction
 > The project directory mentioned below is the location where your downloaded tfshop is placed
@@ -102,12 +108,13 @@ chmod -R 777 storage/
 2. Change the API address in the `admin\vue2\element-admin-v3\config\dev.env.js` configuration file to the API domain name configured above
 ![图片](/image/20240510111720.png)
 3. Open the command line and execute the following code
-```
+```shell
 npm run dev
 ```
+4. The default password is: admin
 ## uni-app setup
 1. Open HBuilder X
 2. File -> Import -> Import from local directory
-3. Select `dsshop\client\ unit -app\mix-mall`
+3. Select `tfshop\client\ unit -app\mix-mall`
 4. Modify the relevant api address code in `utlis/config.js`
 ![图片](/image/20240510143752.png)

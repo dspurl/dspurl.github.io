@@ -26,6 +26,7 @@ export default defineUserConfig({
             collapsable: false,
             children: [
               '/pro-guide/decorate.md',
+              '/pro-guide/deploy.md',
             ],
           },
           {
@@ -72,6 +73,14 @@ export default defineUserConfig({
               '/en/guide/theme.md',
               '/en/guide/deploy.md',
               '/en/guide/function.md'
+            ],
+          },
+          {
+            text: 'PRO Guide',
+            collapsable: false,
+            children: [
+              '/en/pro-guide/decorate.md',
+              '/en/pro-guide/deploy.md',
             ],
           },
           {
